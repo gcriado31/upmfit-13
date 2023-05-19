@@ -17,6 +17,7 @@ public class ControladorCliente {
 	public ControladorCliente(){
 		//TODO COMPLETAR METODO
 		this.m_Cliente=new LinkedList<Cliente>();
+		this.m_VistaCliente=VistaCliente.getInstance();
 	}
 
 	// MÉTODOS

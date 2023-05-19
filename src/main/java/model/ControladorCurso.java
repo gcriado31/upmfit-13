@@ -16,6 +16,8 @@ public class ControladorCurso {
 	//CONSTRUCTOR
 	public  ControladorCurso(){
 		//TODO COMPLETAR CONSTRUCTOR
+		this.m_Curso=new LinkedList<>();
+		this.m_VistaCurso=VistaCurso.getInstance();
 	}
 	
 	//METODOS

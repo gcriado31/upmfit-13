@@ -16,6 +16,7 @@ public class SistemaUPMFIT {
 	//CONSTRUCTOR
 	public  SistemaUPMFIT(){
 		//TODO COMPLETAR CONSTRUCTOR
+		this.m_VistaPrincipal=VistaPrincipal.getInstance();
 	}
 
 	//METODOS
