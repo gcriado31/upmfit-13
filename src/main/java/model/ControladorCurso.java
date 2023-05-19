@@ -4,7 +4,8 @@ import java.util.*;
 
 /**
  * 
- * Controlador  de los cursos
+ * Controlador  de los cursos.
+ * Implementa el patrón Singleton
  *
  */
 public class ControladorCurso {
@@ -12,12 +13,21 @@ public class ControladorCurso {
 	//ATRIBUTOS
 	public  VistaCurso m_VistaCurso;
 	public LinkedList<Curso> m_Curso;
+	//INSTANCIA
+	private static ControladorCurso instance=new ControladorCurso();
 
-	//CONSTRUCTOR
-	public  ControladorCurso(){
-		//TODO COMPLETAR CONSTRUCTOR
+	/**Constructor privado para el patron Singleton.*/
+	private ControladorCurso(){
 		this.m_Curso=new LinkedList<>();
 		this.m_VistaCurso=VistaCurso.getInstance();
+	}
+
+	/**
+	 * Nos devuelve la instancia de ControladorCurso.
+	 * @return la instancia de la clase.
+	 */
+	public static ControladorCurso getInstance(){
+		return instance;
 	}
 	
 	//METODOS

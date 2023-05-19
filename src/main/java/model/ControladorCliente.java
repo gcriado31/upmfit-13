@@ -12,12 +12,22 @@ public class ControladorCliente {
 	// ATRIBUTOS 
 	public VistaCliente m_VistaCliente;
 	public LinkedList<Cliente> m_Cliente;
+	// INSTANCIA
+	public static ControladorCliente instance=new ControladorCliente();
 
-	// CONSTRUCTOR
-	public ControladorCliente(){
+	/**Constructor privado para el patron Singleton.*/
+	private ControladorCliente(){
 		//TODO COMPLETAR METODO
 		this.m_Cliente=new LinkedList<Cliente>();
 		this.m_VistaCliente=VistaCliente.getInstance();
+	}
+
+	/**
+	 * Nos devuelve la instancia de ControladorCliente.
+	 * @return la instancia de la clase.
+	 */
+	private static ControladorCliente getInstance(){
+		return instance;
 	}
 
 	// MÉTODOS
