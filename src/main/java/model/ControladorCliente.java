@@ -4,7 +4,7 @@ import java.util.*;
 
 /** 
  * Controlador de los Clientes
- * @author Guillermo Criado
+ * 
  */
 
 public class ControladorCliente {

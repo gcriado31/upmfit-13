@@ -6,18 +6,28 @@ package model;
  */
 public class VistaPrincipal { //TODO NO SE PA QUE SIRVE ESTO
 
+	private static final String textoBienvenida=" Bienvenido a UPMFit ";
 	
-	//TODO ¿ATRIBUTOS?
+	private static final String textoOpcion1= "1: Alta de cliente";
 	
-	//TODO ¿CONSTRUCTOR?
+	private static final String textoOpcion2= "2: Alta de curso";
 	
-	//METODOS
+	private static final String textoOpcion3= "3: Inscripción de un cliente a un curso";
+
+	private static final String textoOpcion4= "4: Visualización de los detalles de un curso";
+
+
 	public void renderError(){
-		//TODO COMPLETAR METODO
+
 	}
 
 	public void renderMenu(){
-		//TODO COMPLETAR METODO
+		System.out.println(textoBienvenida);
+		System.out.println(textoOpcion1);
+		System.out.println(textoOpcion2);
+		System.out.println(textoOpcion3);
+		System.out.println(textoOpcion4);
 	}
-
+	
+	
 }

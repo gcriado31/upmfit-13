@@ -17,7 +17,18 @@ public class Estudiantes extends Cliente {
 		this.numeroMatricula = numeroMatricula;
 	}
 	
-	//TODO ¿SETTERS Y GETTERS?
+	//SETTERS Y GETTERS
+	public String getNumeroMatricula() {
+		return numeroMatricula;
+	}
+
+	public void setNumeroMatricula(String numeroMatricula) {
+		this.numeroMatricula = numeroMatricula;
+	}
+
+	public static int getDescuentoEstudiante() {
+		return DESCUENTO_ESTUDIANTE;
+	}
 	
 
 	
