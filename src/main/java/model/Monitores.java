@@ -10,15 +10,15 @@ import java.util.*;
 public class Monitores extends Usuario {
 	
 	//ATRIBUTOS
-	private String numeroCuenta; //TODO ¿Long? o ¿String?
+	private String numeroCuenta;
 	public LinkedList<Curso> m_Curso;
 	
 	//CONSTRUCTORES
 	public Monitores(String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario,
-			String numeroCuenta, LinkedList<Curso> m_Curso) {
+			String numeroCuenta) {
 		super(contraseña, correo, dni, nombreCompleto, nombreUsuario);
 		this.numeroCuenta = numeroCuenta;
-		this.m_Curso = m_Curso;
+		this.m_Curso = new LinkedList<>();
 	}
 
 	//SETTERS Y GETTERS

@@ -6,7 +6,7 @@ import java.util.*;
  * Clase del usuario, nos valdrá para usuarios externos a la UPM, será padre de los internos UPM y de los monitores
  *
  */
-public  class Cliente extends Usuario implements ICliente{
+public class Cliente extends Usuario implements ICliente{
 	
 	// ATRIBUTOS 
 	protected int edad;

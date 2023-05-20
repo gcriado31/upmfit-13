@@ -12,6 +12,7 @@ public class ControladorCliente {
 	// ATRIBUTOS 
 	public VistaCliente m_VistaCliente;
 	public LinkedList<Cliente> m_Cliente;
+	public ClientFactory creadorClientes;
 	// INSTANCIA
 	public static ControladorCliente instance=new ControladorCliente();
 
@@ -20,6 +21,7 @@ public class ControladorCliente {
 		//TODO COMPLETAR METODO
 		this.m_Cliente=new LinkedList<Cliente>();
 		this.m_VistaCliente=VistaCliente.getInstance();
+		this.creadorClientes =new ClientFactory();
 	}
 
 	/**
