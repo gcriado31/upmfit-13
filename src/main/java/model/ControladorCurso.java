@@ -52,7 +52,7 @@ public class ControladorCurso {
 	 * @param id Id del curso que estamos buscando.
 	 * @return Devolverá el curso con id igual al pasado. En caso de no encontrarlo devolverá null
 	 */
-	private Curso searchCurse(String id){ //TODO Valorar la posibilidad de hacer clase Search
+	private Curso searchCurse(String id){ 
 		boolean stop=false;
 		Curso found=null;
 		int iterator=0;
