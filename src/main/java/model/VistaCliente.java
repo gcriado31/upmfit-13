@@ -30,4 +30,13 @@ public class VistaCliente {
 		return "";
 	}
 
+	public void renderRegister(int paso){
+		//TODO COMPLETAR METODOç
+		
+	}
+
+	public void show(String msg){
+		
+	}
+
 }

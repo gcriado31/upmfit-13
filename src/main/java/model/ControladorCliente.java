@@ -9,8 +9,11 @@ import java.util.*;
 
 public class ControladorCliente {
 	
+	// VARIABLES GLOBALES
+	private static final String CLIENTE_CREADO_CORRECTAMENTE="Cliente registrado correctamente";
 	// ATRIBUTOS 
 	public VistaCliente m_VistaCliente;
+	private Input input;
 	public LinkedList<Cliente> m_Cliente;
 	public ClientFactory creadorClientes;
 	// INSTANCIA
@@ -22,6 +25,7 @@ public class ControladorCliente {
 		this.m_Cliente=new LinkedList<Cliente>();
 		this.m_VistaCliente=VistaCliente.getInstance();
 		this.creadorClientes =new ClientFactory();
+		this.input=new Input();
 	}
 
 	/**
@@ -37,9 +41,85 @@ public class ControladorCliente {
 		//TODO COMPLETAR METODO
 	}
 	public String create(){
-		//TODO COMPLETAR METODO
+		//TODO FALTA TRATAMIENTO DE EXCEPCIONES Y REVISAR COMO MODULARIZAR EL MÉTODO
+		int paso=0, edad=0, peso=0;
+		String nombreCompleto="", nombreUsario="", contraseña="", correo="", dni="";
+		Sexo sexo=null;
+		this.comunInfo(paso, nombreCompleto, nombreUsario, edad, peso, sexo, contraseña, correo, dni);
+		m_VistaCliente.renderRegister(paso);
+		int tipo=input.scanInt();
+		switch(tipo){
+			case 1: //Estudiante 
+				m_VistaCliente.show("Introduzca el número de matrícula:");
+				String numeroMatricula=input.scanString();
+				m_Cliente.add(creadorClientes.createCliente(edad, edad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, -1, null));
+				break;
+			case 2: // Personal UPM
+				m_VistaCliente.show("Introduzca la antigüedad:");
+				int antiguedad=input.scanInt();
+				m_VistaCliente.show("Seleccione tipo de personal:\n\t1. PAS.\n\t2.PDI.");
+				int seleccion=input.scanInt();
+				TipoPersonal tipoPersonal=null;
+				switch(seleccion){
+					case 1:
+						tipoPersonal=TipoPersonal.PAS;
+						break;
+					case 2:
+						tipoPersonal=TipoPersonal.PDI;
+				}
+				m_Cliente.add(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, null, antiguedad, tipoPersonal));
+				break;
+			default: // Cliente externo
+				m_Cliente.add(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, null, -1, null));
+				break;
+		}
+		return CLIENTE_CREADO_CORRECTAMENTE; 
+	}
 
-		return "Cliente registrado correctamente"; //TODO VARIABLE GLOBAL
+	private void comunInfo(int paso,String nombreCompleto, String nombreUsuario, int edad, int peso, Sexo sexo, String contraseña, String correo, String dni){
+			// Pedir nombre completo
+			m_VistaCliente.renderRegister(paso);
+			nombreCompleto=input.scanString();
+			paso++;
+			// Pedir nombre usuario
+			m_VistaCliente.renderRegister(paso);
+			nombreUsuario=input.scanString();
+			paso++;
+			// Pedir edad
+			m_VistaCliente.renderRegister(paso);
+			edad=input.scanInt();
+			paso++;
+			// Pedir peso
+			m_VistaCliente.renderRegister(paso);
+			peso=input.scanInt();
+			paso++;
+			// Pedir Sexo 
+			m_VistaCliente.renderRegister(paso);
+			int opcion=input.scanInt();
+			switch (opcion) {
+				case 1:
+					sexo=Sexo.HOMBRE;
+					break;
+				case 2:
+					sexo=Sexo.MUJER;
+				default:
+					sexo=Sexo.SIN_DEFINIR;
+					break;
+			}
+			paso++;
+			// Pedir contraseña
+			m_VistaCliente.renderRegister(paso);
+			contraseña=input.scanString();
+			paso++;
+			// Pedir correo
+			m_VistaCliente.renderRegister(paso);
+			correo=input.scanString();
+			paso++;
+			// Pedir DNI
+			m_VistaCliente.renderRegister(paso);
+			dni=input.scanString();
+			paso++;
+	
 	}
 	
 	public String requestShow(String dni){
