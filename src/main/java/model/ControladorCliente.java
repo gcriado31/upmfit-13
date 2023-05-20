@@ -26,7 +26,7 @@ public class ControladorCliente {
 	 * Nos devuelve la instancia de ControladorCliente.
 	 * @return la instancia de la clase.
 	 */
-	private static ControladorCliente getInstance(){
+	public static ControladorCliente getInstance(){
 		return instance;
 	}
 
