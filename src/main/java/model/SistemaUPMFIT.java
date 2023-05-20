@@ -3,7 +3,7 @@ package model;
 /**
  * 
  * Clase del sistema. Es la clase principal del software desarrollado.
- * @version 1.1
+ * @version 1.3
  *
  */
 public class SistemaUPMFIT {
@@ -17,6 +17,8 @@ public class SistemaUPMFIT {
 	public  SistemaUPMFIT(){
 		//TODO COMPLETAR CONSTRUCTOR
 		this.m_VistaPrincipal=VistaPrincipal.getInstance();
+		this.m_ControladorCliente=ControladorCliente.getInstance();
+		this.m_ControladorCurso=ControladorCurso.getInstance();
 	}
 
 	//METODOS
