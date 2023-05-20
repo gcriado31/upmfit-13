@@ -13,7 +13,6 @@ public class ControladorCliente {
 	private static final String CLIENTE_CREADO_CORRECTAMENTE="Cliente registrado correctamente";
 	// ATRIBUTOS 
 	public VistaCliente m_VistaCliente;
-	private Input input;
 	public LinkedList<Cliente> m_Cliente;
 	public ClientFactory creadorClientes;
 	// INSTANCIA
@@ -25,7 +24,6 @@ public class ControladorCliente {
 		this.m_Cliente=new LinkedList<Cliente>();
 		this.m_VistaCliente=VistaCliente.getInstance();
 		this.creadorClientes =new ClientFactory();
-		this.input=new Input();
 	}
 
 	/**
@@ -41,11 +39,40 @@ public class ControladorCliente {
 		//TODO COMPLETAR METODO
 	}
 	public String create(){
-		//TODO FALTA TRATAMIENTO DE EXCEPCIONES Y REVISAR COMO MODULARIZAR EL MÉTODO
-		int paso=0, edad=0, peso=0, antiguedad=-1;
+		//TODO FALTA TRATAMIENTO DE EXCEPCIONES
+		m_VistaCliente.show("NUEVO CLIENTE\n"+"============");
+		int edad=-1, peso=-1, antiguedad=-1;
 		String nombreCompleto=null, nombreUsario=null, contraseña=null, correo=null, dni=null, numeroMatricula=null;
 		Sexo sexo=null; TipoPersonal tipoPersonal=null;
+		// Información basica
+		nombreCompleto=m_VistaCliente.askString("Introduzca nombre completo:");
+		dni=m_VistaCliente.askString("Introduzca su DNI:");
+		nombreUsario=m_VistaCliente.askString("Introduzca nombre de usuario:");
+		correo=m_VistaCliente.askString("Introduzca su correo:");
+		contraseña=m_VistaCliente.askString("Introduzca contraseña: ");
+		// Información específica
+		int tipo=m_VistaCliente.askOpcion("¿Cómo se quiere registrar usted?\n\t1. Usuario externo.\n\t2. Personal interno UPM\n\t3. Estudiante");
+		switch (tipo) {
+			case 2:
+				m_VistaCliente.show("Personal Interno UPM");
+				antiguedad=m_VistaCliente.askInt("Introduzca su antigüedad:");
+				int eleccion=m_VistaCliente.askOpcion("¿Qué tipo de personal es usted?\n\t1. PAS.\n\t2. PDI");
+				switch (eleccion) {
+					case 1:
+						tipoPersonal=TipoPersonal.PAS;
+						break;
+				
+					case 2:
+						tipoPersonal=TipoPersonal.PDI;
+						break;
+				}
+				break;
 		
+			case 3:
+				m_VistaCliente.show("Estudiante UPM");
+				numeroMatricula=m_VistaCliente.askString("Introduzca el número de matrícula");
+				break;
+		}
 		m_Cliente.add(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
 		return CLIENTE_CREADO_CORRECTAMENTE; 
 	}
