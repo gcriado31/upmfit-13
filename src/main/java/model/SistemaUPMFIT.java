@@ -17,8 +17,8 @@ public class SistemaUPMFIT {
 	public  SistemaUPMFIT(){
 		//TODO COMPLETAR CONSTRUCTOR
 		this.m_VistaPrincipal=VistaPrincipal.getInstance();
-		this.m_ControladorCliente=ControladorCliente.getInstance();
 		this.m_ControladorCurso=ControladorCurso.getInstance();
+		this.m_ControladorCliente=ControladorCliente.getInstance();
 	}
 
 	//METODOS
