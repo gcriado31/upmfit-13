@@ -37,24 +37,28 @@ public class ControladorCliente {
 	// MÉTODOS
 	public void finalize() throws Throwable {
 		//TODO COMPLETAR METODO
+		this.m_Cliente.clear();
+		this.m_Cliente=null;
+		this.m_VistaCliente=null;
+		this.creadorClientes=null;
 	}
 	public String create(){
-		//TODO FALTA TRATAMIENTO DE EXCEPCIONES
-		m_VistaCliente.show("NUEVO CLIENTE\n"+"============");
+		//TODO FALTA TRATAMIENTO DE EXCEPCIONES Y VARIABLES GLOBALES
+		this.m_VistaCliente.show("NUEVO CLIENTE\n"+"============");
 		int edad=-1, peso=-1, antiguedad=-1;
 		String nombreCompleto=null, nombreUsario=null, contraseña=null, correo=null, dni=null, numeroMatricula=null;
 		Sexo sexo=null; TipoPersonal tipoPersonal=null;
 		// Información basica
-		nombreCompleto=m_VistaCliente.askString("Introduzca nombre completo:");
-		dni=m_VistaCliente.askString("Introduzca su DNI:");
-		nombreUsario=m_VistaCliente.askString("Introduzca nombre de usuario:");
-		correo=m_VistaCliente.askString("Introduzca su correo:");
-		contraseña=m_VistaCliente.askString("Introduzca contraseña: ");
+		nombreCompleto=this.m_VistaCliente.askString("Introduzca nombre completo:");
+		dni=this.m_VistaCliente.askString("Introduzca su DNI:");
+		nombreUsario=this.m_VistaCliente.askString("Introduzca nombre de usuario:");
+		correo=this.m_VistaCliente.askString("Introduzca su correo:");
+		contraseña=this.m_VistaCliente.askString("Introduzca contraseña: ");
 		// Información específica
-		int tipo=m_VistaCliente.askOpcion("¿Cómo se quiere registrar usted?\n\t1. Usuario externo.\n\t2. Personal interno UPM\n\t3. Estudiante");
+		int tipo=this.m_VistaCliente.askOpcion("¿Cómo se quiere registrar usted?\n\t1. Usuario externo.\n\t2. Personal interno UPM\n\t3. Estudiante");
 		switch (tipo) {
 			case 2:
-				m_VistaCliente.show("Personal Interno UPM");
+				this.m_VistaCliente.show("Personal Interno UPM");
 				antiguedad=m_VistaCliente.askInt("Introduzca su antigüedad:");
 				int eleccion=m_VistaCliente.askOpcion("¿Qué tipo de personal es usted?\n\t1. PAS.\n\t2. PDI");
 				switch (eleccion) {
@@ -69,14 +73,18 @@ public class ControladorCliente {
 				break;
 		
 			case 3:
-				m_VistaCliente.show("Estudiante UPM");
-				numeroMatricula=m_VistaCliente.askString("Introduzca el número de matrícula");
+				this.m_VistaCliente.show("Estudiante UPM");
+				numeroMatricula=m_VistaCliente.askString("Introduzca el número de matrícula:");
 				break;
 		}
-		m_Cliente.add(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
+		this.m_Cliente.add(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
 		return CLIENTE_CREADO_CORRECTAMENTE; 
 	}
 
+	public void eraseClient(String dni){
+		Cliente searched=this.searchClient(dni);
+		this.m_Cliente.remove(searched);
+	}
 	
 	public String requestShow(String dni){
 		// TODO SABER SI ESTA BIEN HECHO.
