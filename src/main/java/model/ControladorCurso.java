@@ -63,6 +63,11 @@ public class ControladorCurso {
 		}while(repetir);
 		return id;
 	}
+	
+	public void addCurso(Curso curso) {
+		this.m_Curso.add(curso);
+		
+	}
 
 	public String requestShow(String id){
 		// TODO SABER SI ESTA BIEN HECHO.
