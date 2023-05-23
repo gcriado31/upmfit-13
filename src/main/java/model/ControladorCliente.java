@@ -77,8 +77,12 @@ public class ControladorCliente {
 				numeroMatricula=m_VistaCliente.askString("Introduzca el número de matrícula:");
 				break;
 		}
-		this.m_Cliente.add(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
+		this.addClient(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
 		return CLIENTE_CREADO_CORRECTAMENTE; 
+	}
+
+	public void addClient(Cliente cliente){
+		this.m_Cliente.add(cliente);
 	}
 
 	public void eraseClient(String dni){

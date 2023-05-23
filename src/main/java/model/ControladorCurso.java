@@ -10,6 +10,8 @@ import java.util.*;
  */
 public class ControladorCurso {
 	
+	// VARIABLES GLOBALES
+	private static final String CURSO_CREADO_CORRECTAMENTE="Curso registrado correctamente";
 	//ATRIBUTOS
 	public  VistaCurso m_VistaCurso;
 	public LinkedList<Curso> m_Curso;
@@ -33,12 +35,34 @@ public class ControladorCurso {
 	//METODOS
 	public void finalize() throws Throwable {
 		//TODO COMPLETAR METODO
+		this.m_Curso.clear();
+		this.m_Curso=null;
+		this.m_VistaCurso=null;
 	}
 	public String create(){
 		//TODO COMPLETAR METODO
-		return "";
+		String nombreCurso=m_VistaCurso.askString("Introduzca el nombre del curso:");
+		int numPersonasMax=m_VistaCurso.askInt("Introduzca el número máximo de personas: ");
+		int numSesiones=m_VistaCurso.askInt("Introduzca el numero se sesiones que tendrá el curso: ");
+		String id=this.generateID();
+		m_Curso.add(new Curso(id,nombreCurso,numPersonasMax, numSesiones));	
+		return CURSO_CREADO_CORRECTAMENTE;
 	}
 
+	private String generateID(){
+		boolean repetir=true;
+		int idNumber=0;
+		String id;
+		do{
+			Random idGenator=new Random();
+			idNumber=idGenator.nextInt(100); //TODO PENSAR NÚMERO PARA PONER
+			id=Integer.toString(idNumber);
+			if (searchCurse(id)==null){
+				repetir=false;
+			}
+		}while(repetir);
+		return id;
+	}
 
 	public String requestShow(String id){
 		// TODO SABER SI ESTA BIEN HECHO.

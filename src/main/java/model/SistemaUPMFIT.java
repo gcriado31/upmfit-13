@@ -31,7 +31,7 @@ public class SistemaUPMFIT {
 
 	//MAIN
 	public void main(){
-		Cliente cliente= new Cliente(18, 20/3/2027,100, "M", "AAAA","d","","","");
+		//Cliente cliente= new Cliente(18, 20/3/2027,100, "M", "AAAA","d","","","");
 
 	}
 

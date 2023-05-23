@@ -9,7 +9,7 @@ package model;
 public class VistaCliente {
 	
 	//TODO POSIBLES ATRIBUTOS SON STRINGS FIJOS TIPO "NO EXISTE ESE CLIENTE"
-
+	
 	//ATRIBUTOS
 	private static VistaCliente instance=new VistaCliente();
 	private Input input;
