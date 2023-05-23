@@ -85,7 +85,7 @@ public class ControladorCliente {
 		this.m_Cliente.add(cliente);
 	}
 
-	public void eraseClient(String dni){
+	public void eraseClient(String dni){ //TODO AQUI EXCEPCIÓN
 		Cliente searched=this.searchClient(dni);
 		this.m_Cliente.remove(searched);
 	}

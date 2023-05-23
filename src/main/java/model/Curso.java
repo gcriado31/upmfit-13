@@ -25,6 +25,7 @@ public class Curso implements ICurso{
 		this.nombreCurso=nombreCurso;
 		this.numPersonasMax=numPersonasMax;
 		this.sesiones=new ArrayList<>(numSesiones);
+		this.numPersonasApuntadas=0;
 	}
 	
 	//SETTERS Y GETTERS
@@ -49,7 +50,10 @@ public class Curso implements ICurso{
 		this.numPersonasMax=numPersonasMax;
 	}
 	
-	
+	// METODOS
+	public void apuntarCliente(){
+		this.numPersonasApuntadas++;
+	}
 	
 	
 }

@@ -12,6 +12,7 @@ public class ControladorCurso {
 	
 	// VARIABLES GLOBALES
 	private static final String CURSO_CREADO_CORRECTAMENTE="Curso registrado correctamente";
+	private static final String CURSO_NOT_FOUND="El curso buscado no se ha encontrado";
 	//ATRIBUTOS
 	public  VistaCurso m_VistaCurso;
 	public LinkedList<Curso> m_Curso;
@@ -67,6 +68,15 @@ public class ControladorCurso {
 	public void addCurso(Curso curso) {
 		this.m_Curso.add(curso);
 		
+	}
+
+	public void ereaseCurso(String id){
+		Curso ereased=this.searchCurse(id);
+		if(ereased!=null){
+			this.m_Curso.remove(ereased);
+		}else{
+			m_VistaCurso.show(CURSO_NOT_FOUND);
+		}
 	}
 
 	public String requestShow(String id){
