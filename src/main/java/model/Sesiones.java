@@ -9,14 +9,17 @@ public class Sesiones {
 	
 	//ATRIBUTOS
 	private Actividad actividades;
-	// TODO HORA INICIO Y HORA FINAL LOS PONDRÍA A STRING XQ SERIA FORMATO HH:MM
-	private int horaFinal; 
-	private int horaIncio;
-	private int idSesiones;
+	private String horaFinal; 
+	private String horaIncio;
+	private String idSesiones;
 
 	//CONSTRUCTOR
-	public Sesiones(){
+	public Sesiones(Actividad actividades, String horaIncio, String horaFinal, String idSesiones){
 		//TODO COMPLETAR CONSTRUCTOR
+		this.actividades=actividades;
+		this.horaIncio=horaIncio;
+		this.horaFinal=horaFinal;
+		this.idSesiones=idSesiones;
 	}
 
 	// TODO ¿SETTERS Y GETTERS?

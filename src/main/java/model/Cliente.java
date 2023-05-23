@@ -12,12 +12,12 @@ public class Cliente extends Usuario implements ICliente{
 	protected int edad;
 	protected int fechaCaducidad;
 	protected int peso;
-	protected String sexo;
+	protected Sexo sexo;
 	public LinkedList<Curso> cursos;
 
 	
 	// CONSTRUCTOR
-	public Cliente(int edad, int fechaCaducidad, int peso, String sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) {
+	public Cliente(int edad, int fechaCaducidad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) {
 		super(contraseña,correo,dni,nombreCompleto,nombreUsuario);
 		this.edad = edad;
 		this.fechaCaducidad = fechaCaducidad;
@@ -51,11 +51,11 @@ public class Cliente extends Usuario implements ICliente{
 		this.peso = peso;
 	}
 
-	public String getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(String sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 

@@ -10,6 +10,9 @@ import java.util.*;
  */
 public class ControladorCurso {
 	
+	// VARIABLES GLOBALES
+	private static final String CURSO_CREADO_CORRECTAMENTE="Curso registrado correctamente";
+	private static final String CURSO_NOT_FOUND="El curso buscado no se ha encontrado";
 	//ATRIBUTOS
 	public  VistaCurso m_VistaCurso;
 	public LinkedList<Curso> m_Curso;
@@ -33,12 +36,48 @@ public class ControladorCurso {
 	//METODOS
 	public void finalize() throws Throwable {
 		//TODO COMPLETAR METODO
+		this.m_Curso.clear();
+		this.m_Curso=null;
+		this.m_VistaCurso=null;
 	}
 	public String create(){
 		//TODO COMPLETAR METODO
-		return "";
+		String nombreCurso=m_VistaCurso.askString("Introduzca el nombre del curso:");
+		int numPersonasMax=m_VistaCurso.askInt("Introduzca el número máximo de personas: ");
+		int numSesiones=m_VistaCurso.askInt("Introduzca el numero se sesiones que tendrá el curso: ");
+		String id=this.generateID();
+		m_Curso.add(new Curso(id,nombreCurso,numPersonasMax, numSesiones));	
+		return CURSO_CREADO_CORRECTAMENTE;
 	}
 
+	private String generateID(){
+		boolean repetir=true;
+		int idNumber=0;
+		String id;
+		do{
+			Random idGenator=new Random();
+			idNumber=idGenator.nextInt(100); //TODO PENSAR NÚMERO PARA PONER
+			id=Integer.toString(idNumber);
+			if (searchCurse(id)==null){
+				repetir=false;
+			}
+		}while(repetir);
+		return id;
+	}
+	
+	public void addCurso(Curso curso) {
+		this.m_Curso.add(curso);
+		
+	}
+
+	public void ereaseCurso(String id){
+		Curso ereased=this.searchCurse(id);
+		if(ereased!=null){
+			this.m_Curso.remove(ereased);
+		}else{
+			m_VistaCurso.show(CURSO_NOT_FOUND);
+		}
+	}
 
 	public String requestShow(String id){
 		// TODO SABER SI ESTA BIEN HECHO.
@@ -52,7 +91,7 @@ public class ControladorCurso {
 	 * @param id Id del curso que estamos buscando.
 	 * @return Devolverá el curso con id igual al pasado. En caso de no encontrarlo devolverá null
 	 */
-	private Curso searchCurse(String id){ //TODO Valorar la posibilidad de hacer clase Search
+	private Curso searchCurse(String id){ 
 		boolean stop=false;
 		Curso found=null;
 		int iterator=0;

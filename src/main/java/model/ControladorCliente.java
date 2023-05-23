@@ -9,6 +9,8 @@ import java.util.*;
 
 public class ControladorCliente {
 	
+	// VARIABLES GLOBALES
+	private static final String CLIENTE_CREADO_CORRECTAMENTE="Cliente registrado correctamente";
 	// ATRIBUTOS 
 	public VistaCliente m_VistaCliente;
 	public LinkedList<Cliente> m_Cliente;
@@ -35,11 +37,57 @@ public class ControladorCliente {
 	// MÉTODOS
 	public void finalize() throws Throwable {
 		//TODO COMPLETAR METODO
+		this.m_Cliente.clear();
+		this.m_Cliente=null;
+		this.m_VistaCliente=null;
+		this.creadorClientes=null;
 	}
 	public String create(){
-		//TODO COMPLETAR METODO
+		//TODO FALTA TRATAMIENTO DE EXCEPCIONES Y VARIABLES GLOBALES
+		this.m_VistaCliente.show("NUEVO CLIENTE\n"+"============");
+		int edad=-1, peso=-1, antiguedad=-1;
+		String nombreCompleto=null, nombreUsario=null, contraseña=null, correo=null, dni=null, numeroMatricula=null;
+		Sexo sexo=null; TipoPersonal tipoPersonal=null;
+		// Información basica
+		nombreCompleto=this.m_VistaCliente.askString("Introduzca nombre completo:");
+		dni=this.m_VistaCliente.askString("Introduzca su DNI:");
+		nombreUsario=this.m_VistaCliente.askString("Introduzca nombre de usuario:");
+		correo=this.m_VistaCliente.askString("Introduzca su correo:");
+		contraseña=this.m_VistaCliente.askString("Introduzca contraseña: ");
+		// Información específica
+		int tipo=this.m_VistaCliente.askOpcion("¿Cómo se quiere registrar usted?\n\t1. Usuario externo.\n\t2. Personal interno UPM\n\t3. Estudiante");
+		switch (tipo) {
+			case 2:
+				this.m_VistaCliente.show("Personal Interno UPM");
+				antiguedad=m_VistaCliente.askInt("Introduzca su antigüedad:");
+				int eleccion=m_VistaCliente.askOpcion("¿Qué tipo de personal es usted?\n\t1. PAS.\n\t2. PDI");
+				switch (eleccion) {
+					case 1:
+						tipoPersonal=TipoPersonal.PAS;
+						break;
+				
+					case 2:
+						tipoPersonal=TipoPersonal.PDI;
+						break;
+				}
+				break;
+		
+			case 3:
+				this.m_VistaCliente.show("Estudiante UPM");
+				numeroMatricula=m_VistaCliente.askString("Introduzca el número de matrícula:");
+				break;
+		}
+		this.addClient(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
+		return CLIENTE_CREADO_CORRECTAMENTE; 
+	}
 
-		return "Cliente registrado correctamente"; //TODO VARIABLE GLOBAL
+	public void addClient(Cliente cliente){
+		this.m_Cliente.add(cliente);
+	}
+
+	public void eraseClient(String dni){ //TODO AQUI EXCEPCIÓN
+		Cliente searched=this.searchClient(dni);
+		this.m_Cliente.remove(searched);
 	}
 	
 	public String requestShow(String dni){
