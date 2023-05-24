@@ -33,7 +33,7 @@ public class VistaCliente {
 
 
 	public void show(String msg){
-		
+		System.out.println(msg);
 	}
 
     public String askString(String msg) {

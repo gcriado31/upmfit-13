@@ -59,5 +59,12 @@ public class Cliente extends Usuario implements ICliente{
 		this.sexo = sexo;
 	}
 
+	public String toStringSimple(){
+		return "";
+	}
+
+	public String toStringCompleto(){
+		return "";
+	}
 	
 }
