@@ -83,7 +83,12 @@ public class ControladorCurso {
 		// TODO SABER SI ESTA BIEN HECHO.
 		// TODO EN CLASE VISTACURSO MIRAR SI REQUESTED ES NULL
 		Curso requested=this.searchCurse(id);
-		return m_VistaCurso.renderShow(requested);
+		if(requested!=null){
+			return m_VistaCurso.renderShow(requested);
+		}else{
+			return (CURSO_NOT_FOUND);
+		}
+		
 	}
 
 	/**
