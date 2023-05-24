@@ -1,7 +1,6 @@
 package model;
 import java.util.*;
-import utilidades.Cifrado;
-
+import utilidades.*;
 /**
  * 
  * Clase del usuario, nos valdrá para usuarios externos a la UPM, será padre de los internos UPM y de los monitores
