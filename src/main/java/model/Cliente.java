@@ -1,5 +1,11 @@
 package model;
 import java.util.*;
+import externals.*;
+import servidor.Autenticacion;
+import servidor.Correo;
+import servidor.ObtencionDeRol;
+import servidor.UPMUsers;
+import utilidades.Cifrado;
 
 /**
  * 
@@ -18,7 +24,9 @@ public class Cliente extends Usuario implements ICliente{
 	
 	// CONSTRUCTOR
 	public Cliente(int edad, int fechaCaducidad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) {
-		super(contraseña,correo,dni,nombreCompleto,nombreUsuario);
+		super(Cifrado.cifrar(contraseña),correo,dni,nombreCompleto,nombreUsuario);
+		Correo correo1= new Correo();
+		ObtencionDeRol.
 		this.edad = edad;
 		this.fechaCaducidad = fechaCaducidad;
 		this.peso = peso;
