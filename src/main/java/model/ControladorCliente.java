@@ -11,6 +11,7 @@ public class ControladorCliente {
 	
 	// VARIABLES GLOBALES
 	private static final String CLIENTE_CREADO_CORRECTAMENTE="Cliente registrado correctamente";
+	private static final String CLIENTE_NOT_FOUND="El cliente buscado no se ha encontrado";
 	// ATRIBUTOS 
 	public VistaCliente m_VistaCliente;
 	public LinkedList<Cliente> m_Cliente;
@@ -94,7 +95,11 @@ public class ControladorCliente {
 		// TODO SABER SI ESTA BIEN HECHO.
 		// TODO EN CLASE VISTACLIENTE MIRAR SI REQUESTED ES NULL
 		Cliente show=this.searchClient(dni);
-		return m_VistaCliente.rendershow(show);
+		if(show!=null){
+			return m_VistaCliente.renderShow(show);
+		}else{
+			return (CLIENTE_NOT_FOUND);
+		}
 	}
 
 	/**

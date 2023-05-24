@@ -1,19 +1,36 @@
 package model;
 
+import java.util.Scanner;
+
+/**
+ * Esta calse nos servirá para escanear lo que le usuario meta por pantalla.
+ * Aplicará el patrón Singleton.
+ */
 public class Input {
     
+    //ATRIBUTOS
+    private Scanner scanner;
+    //INSTANCIA
+    private static Input instance= new Input();
 
+    /**
+     * Constructor privado para patron Singleton
+     */
+    private Input(){
+        this.scanner=new Scanner(System.in);
+    }
 
-
+    //GETTER
+    public static Input getInstance(){
+        return instance;
+    }
 
     // METODOS
     public String scanString(){
-        //TODO COMPLETAR METODO
-        return"";
+        return this.scanner.nextLine();
     }
 
     public int scanInt() {
-        //TODO COMPLETAR METODO
-        return 0;
+        return this.scanner.nextInt();
     }
 }

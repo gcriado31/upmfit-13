@@ -15,7 +15,7 @@ public class VistaCliente {
 	private Input input;
 	
 	/**Constructor privado para el patron Singleton.*/
-	private VistaCliente(){ this.input=new Input(); }
+	private VistaCliente(){ this.input=Input.getInstance(); }
 
 	/**
 	 * Este método nos devuelve la instancia de la clase VistaCliente implementando así el patrón Singleton.
@@ -26,7 +26,7 @@ public class VistaCliente {
 	}
 
 	//METODOS 
-	public String rendershow(ICliente cliente){ // TODO ¿PORQUÉ ICLIENTE?
+	public String renderShow(ICliente cliente){ // TODO ¿PORQUÉ ICLIENTE?
 		//TODO COMPLETAR METODO
 		return "";
 	}
