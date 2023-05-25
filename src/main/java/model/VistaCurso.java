@@ -33,7 +33,7 @@ public class VistaCurso {
 	}
 
 	public void show(String msg){
-		
+		System.out.print(msg);
 	}
 
     public String askString(String msg) {
@@ -50,5 +50,10 @@ public class VistaCurso {
 		this.show(msg);
 		return input.scanInt();
 	}
+
+	public void Visualizacion(Curso curso){
+		
+    }
+
 
 }
