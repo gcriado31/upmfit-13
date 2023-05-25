@@ -51,4 +51,23 @@ public class VistaCliente {
 		return input.scanInt();
 	}
 
+	public String toStringSimple(Cliente cliente){
+		return " Nombre: " + cliente.nombreCompleto + 
+		", Nombre Usuario: " + cliente.nombreUsuario + 
+		", Contraseña: " + cliente.contraseña + 
+		", Correo: " + cliente.correo + 
+		", DNI: " + cliente.dni + "\n";
+	}
+
+	public String toString(Cliente cliente){
+		return " Nombre: " + cliente.nombreCompleto + 
+		", Nombre Usuario: " + cliente.nombreUsuario + 
+		", Contraseña: " + cliente.contraseña + 
+		", Correo: " + cliente.correo + 
+		", DNI: " + cliente.dni + 
+		", Edad: " + cliente.edad + 
+		", Peso: " + cliente.peso + 
+		", Sexo: " + cliente.sexo + "\n";
+	}
+
 }
