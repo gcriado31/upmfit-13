@@ -41,13 +41,13 @@ public class ControladorCurso {
 		this.m_VistaCurso=null;
 	}
 
-	public String create(){
+	public String create(Monitores monitor){
 		//TODO COMPLETAR METODO
 		String nombreCurso=m_VistaCurso.askString("Introduzca el nombre del curso:");
 		int numPersonasMax=m_VistaCurso.askInt("Introduzca el número máximo de personas: ");
 		int numSesiones=m_VistaCurso.askInt("Introduzca el numero se sesiones que tendrá el curso: ");
 		String id=this.generateID();
-		m_Curso.add(new Curso(id,nombreCurso,numPersonasMax, numSesiones));	
+		m_Curso.add(new Curso(id,nombreCurso,numPersonasMax, numSesiones,monitor));	
 		return CURSO_CREADO_CORRECTAMENTE;
 	}
 

@@ -17,10 +17,11 @@ public class Curso implements ICurso{
 	// Estas dos variables de abajo son las que subimos de la clase sesión
 	protected ArrayList<Cliente> listaClientes;
 	private int numPersonasMax;
-	private int numPersonasApuntadas; 
+	private int numPersonasApuntadas;
+	private Monitores monitor; 
 	
 	//CONSTRUCTOR 
-	public Curso(String idCurso, String nombreCurso, int numPersonasMax, int numSesiones) {
+	public Curso(String idCurso, String nombreCurso, int numPersonasMax, int numSesiones, Monitores monitor) {
 		//TODO COMPLETAR CONSTRUCTOR
 		this.idCurso=idCurso;
 		this.nombreCurso=nombreCurso;
@@ -28,6 +29,7 @@ public class Curso implements ICurso{
 		this.sesiones=new ArrayList<>(numSesiones);
 		this.listaClientes=new ArrayList<>(numPersonasMax);
 		this.numPersonasApuntadas=0;
+		this.monitor=monitor;
 	}
 	
 	//SETTERS Y GETTERS
@@ -51,12 +53,15 @@ public class Curso implements ICurso{
 	public void setNumPersonasMax(int numPersonasMax){
 		this.numPersonasMax=numPersonasMax;
 	}
+
+	public Monitores getMonitor(){
+		return monitor;
+	}
 	
 	// METODOS
 	public void apuntarCliente(Cliente cliente){
 		this.numPersonasApuntadas++;
 		listaClientes.add(cliente);
-	}
-	
+	}	
 	
 }

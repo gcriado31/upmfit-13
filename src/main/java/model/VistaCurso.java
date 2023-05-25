@@ -57,7 +57,7 @@ public class VistaCurso {
 	 * @param curso Curso que se desa saber la información
 	 */
 	public void visualizacionCursos(Curso curso) {
-		this.show("Curso: " + curso.getNombreCurso() + "\n Clientes que se encuentran inscritos: ");
+		this.show("Curso: " + curso.getNombreCurso() +"\nMonitor a cargo: "+curso.getMonitor().getNombreCompleto()+ "\nClientes que se encuentran inscritos: ");
 		for (Cliente cliente : curso.listaClientes) {
 			this.show("\t"+cliente.toStringSimple());
 		}
