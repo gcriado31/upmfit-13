@@ -93,12 +93,12 @@ public class ControladorCliente {
 		this.m_Cliente.remove(searched);
 	}
 	
-	public String requestShow(String dni){
+	public String requestShowSimple(String dni){
 		// TODO SABER SI ESTA BIEN HECHO.
 		// TODO EN CLASE VISTACLIENTE MIRAR SI REQUESTED ES NULL
 		Cliente show=this.searchClient(dni);
 		if(show!=null){
-			return m_VistaCliente.renderShow(show);
+			return m_VistaCliente.renderShowSimple(show);
 		}else{
 			return (CLIENTE_NOT_FOUND);
 		}
