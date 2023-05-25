@@ -15,7 +15,7 @@ public class Curso implements ICurso{
 	private String nombreCurso;
 	public ArrayList<Sesiones> sesiones;
 	// Estas dos variables de abajo son las que subimos de la clase sesión
-	public ArrayList<Cliente> listaClientes;
+	protected ArrayList<Cliente> listaClientes;
 	private int numPersonasMax;
 	private int numPersonasApuntadas; 
 	

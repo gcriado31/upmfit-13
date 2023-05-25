@@ -13,7 +13,7 @@ public class Cliente extends Usuario implements ICliente{
 	protected int fechaCaducidad;
 	protected int peso;
 	protected Sexo sexo;
-	public LinkedList<Curso> cursos;
+	protected LinkedList<Curso> cursos;
 
 	
 	// CONSTRUCTOR
@@ -59,23 +59,23 @@ public class Cliente extends Usuario implements ICliente{
 		this.sexo = sexo;
 	}
 
-	public String toStringSimple(Cliente cliente){
-		return " Nombre: " + cliente.nombreCompleto + 
-		", Nombre Usuario: " + cliente.nombreUsuario + 
-		", Contraseña: " + cliente.contraseña + 
-		", Correo: " + cliente.correo + 
-		", DNI: " + cliente.dni + "\n";
+	public String toStringSimple(){
+		return " Nombre: " + this.nombreCompleto + "\n" +
+		"Nombre Usuario: " + this.nombreUsuario + "\n" +
+		"Contraseña: " + this.contraseña + "\n" +
+		"Correo: " + this.correo + "\n" +
+		"DNI: " + this.dni + "\n" ;
 	}
 
-	public String toString(Cliente cliente){
-		return " Nombre: " + cliente.nombreCompleto + 
-		", Nombre Usuario: " + cliente.nombreUsuario + 
-		", Contraseña: " + cliente.contraseña + 
-		", Correo: " + cliente.correo + 
-		", DNI: " + cliente.dni + 
-		", Edad: " + cliente.edad + 
-		", Peso: " + cliente.peso + 
-		", Sexo: " + cliente.sexo + "\n";
+	public String toStringCompleto(){
+		return " Nombre: " + this.nombreCompleto + "\n" +
+		"Nombre Usuario: " + this.nombreUsuario + "\n" +
+		"Contraseña: " + this.contraseña + "\n" +
+		"Correo: " + this.correo + "\n" +
+		"DNI: " + this.dni + "\n" +
+		"Edad: " + this.edad + "\n" +
+		"Peso: " + this.peso + "\n" +
+		"Sexo: " + this.sexo + "\n";
 	}
 
 }

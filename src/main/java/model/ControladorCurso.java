@@ -95,13 +95,10 @@ public class ControladorCurso {
 	/**
 	 * Método que muesta todos los cursos creados, y por cada curso muestra todos sus clientes 
 	 * con sus datos correspondientes.
-     * @return Devolverá una lista con todos los cursos
 	 */
 	public void requestShowAll(){
-		for(int i = 0; i < m_Curso.size() ; i++){
-			for(int j = 0; j < m_Curso.get(i).listaClientes.size() ; j++){
-				m_VistaCurso.visualizacionCursos(m_Curso.get(i), m_Curso.get(i).listaClientes.get(j) );
-			}
+		for (Curso curso : m_Curso) {
+			m_VistaCurso.visualizacionCursos(curso);
 		}
 	}
 

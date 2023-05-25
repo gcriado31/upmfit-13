@@ -54,17 +54,12 @@ public class VistaCurso {
 	/**
 	 * Devuelve todos los clientes de el curso en concreto con su respectivo String 
 	 * dependiendo de sus datos (ya que edad, peso y sexo son opcionales).
-	 * @param curso
-	 * @param cliente
+	 * @param curso Curso que se desa saber la información
 	 */
-	public void visualizacionCursos(Curso curso, Cliente cliente) {
-		show("En el curso " + curso.getNombreCurso() + " se encuentran inscritos: ");
-		for(int i = 0; i < curso.listaClientes.size(); i++){
-			if(curso.listaClientes.get(i).getEdad() != -1){
-				cliente.toString(curso.listaClientes.get(i));
-            }else{
-				cliente.toStringSimple(curso.listaClientes.get(i));
-			}
+	public void visualizacionCursos(Curso curso) {
+		this.show("Curso: " + curso.getNombreCurso() + "\n Clientes que se encuentran inscritos: ");
+		for (Cliente cliente : curso.listaClientes) {
+			this.show("\t"+cliente.toStringSimple());
 		}
     }
 
