@@ -40,6 +40,7 @@ public class ControladorCurso {
 		this.m_Curso=null;
 		this.m_VistaCurso=null;
 	}
+
 	public String create(){
 		//TODO COMPLETAR METODO
 		String nombreCurso=m_VistaCurso.askString("Introduzca el nombre del curso:");
@@ -89,6 +90,16 @@ public class ControladorCurso {
 			return (CURSO_NOT_FOUND);
 		}
 		
+	}
+
+	/**
+	 * Método que muesta todos los cursos creados, y por cada curso muestra todos sus clientes 
+	 * con sus datos correspondientes.
+	 */
+	public void requestShowAll(){
+		for (Curso curso : m_Curso) {
+			m_VistaCurso.visualizacionCursos(curso);
+		}
 	}
 
 	/**

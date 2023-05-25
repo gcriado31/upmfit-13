@@ -33,7 +33,7 @@ public class VistaCurso {
 	}
 
 	public void show(String msg){
-		
+		System.out.print(msg);
 	}
 
     public String askString(String msg) {
@@ -50,5 +50,18 @@ public class VistaCurso {
 		this.show(msg);
 		return input.scanInt();
 	}
+
+	/**
+	 * Devuelve todos los clientes de el curso en concreto con su respectivo String 
+	 * dependiendo de sus datos (ya que edad, peso y sexo son opcionales).
+	 * @param curso Curso que se desa saber la información
+	 */
+	public void visualizacionCursos(Curso curso) {
+		this.show("Curso: " + curso.getNombreCurso() + "\n Clientes que se encuentran inscritos: ");
+		for (Cliente cliente : curso.listaClientes) {
+			this.show("\t"+cliente.toStringSimple());
+		}
+    }
+
 
 }

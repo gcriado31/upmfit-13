@@ -27,6 +27,8 @@ public class SistemaUPMFIT {
 	}
 	public void iniciar(){
 		//TODO COMPLETAR METODO
+		//TODO BUMPERS
+		
 	}
 
 	//MAIN

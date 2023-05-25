@@ -55,6 +55,7 @@ public class ControladorCliente {
 		nombreUsario=this.m_VistaCliente.askString("Introduzca nombre de usuario:");
 		correo=this.m_VistaCliente.askString("Introduzca su correo:");
 		contraseña=this.m_VistaCliente.askString("Introduzca contraseña: ");
+		
 		// Información específica
 		int tipo=this.m_VistaCliente.askOpcion("¿Cómo se quiere registrar usted?\n\t1. Usuario externo.\n\t2. Personal interno UPM\n\t3. Estudiante");
 		switch (tipo) {
@@ -82,6 +83,24 @@ public class ControladorCliente {
 		return CLIENTE_CREADO_CORRECTAMENTE; 
 	}
 
+	public void insertInfoOpcional(Cliente cliente){
+		//Información basica opcional
+		switch(m_VistaCliente.askOpcion("¿Desea introducir su sexo, edad y peso como información extra?\n\t1. Si.\n\t2. No.")){
+			case 1:
+                String opcionSexo = this.m_VistaCliente.askString("¿Cuál es su sexo? \n\tM. Mujer. \n\tH. Hombre. \n\t3. Sin identificar (cualquier otra letra o palabra). \n\t-> ");
+				if(opcionSexo.equalsIgnoreCase("M")){
+					cliente.setSexo(Sexo.MUJER);
+                }else if(opcionSexo.equalsIgnoreCase("H")){
+					cliente.setSexo(Sexo.HOMBRE);
+				}else{
+                     cliente.setSexo(Sexo.SIN_DEFINIR);
+                }
+				cliente.setEdad(this.m_VistaCliente.askInt("Introduzca su edad: "));
+				cliente.setPeso(this.m_VistaCliente.askInt("Introduzca su peso: "));
+			break;
+		}
+	}
+
 	public void addClient(Cliente cliente){
 		this.m_Cliente.add(cliente);
 	}
@@ -96,7 +115,7 @@ public class ControladorCliente {
 		// TODO EN CLASE VISTACLIENTE MIRAR SI REQUESTED ES NULL
 		Cliente show=this.searchClient(dni);
 		if(show!=null){
-			return m_VistaCliente.renderShow(show);
+			return m_VistaCliente.renderShowSimple(show);
 		}else{
 			return (CLIENTE_NOT_FOUND);
 		}

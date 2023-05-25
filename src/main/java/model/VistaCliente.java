@@ -26,14 +26,14 @@ public class VistaCliente {
 	}
 
 	//METODOS 
-	public String renderShow(ICliente cliente){ // TODO ¿PORQUÉ ICLIENTE?
+	public String renderShowSimple(ICliente cliente){ // TODO ¿PORQUÉ ICLIENTE?
 		//TODO COMPLETAR METODO
 		return "";
 	}
 
 
 	public void show(String msg){
-		
+		System.out.println(msg);
 	}
 
     public String askString(String msg) {

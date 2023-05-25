@@ -1,5 +1,8 @@
 package model;
 
+import servidor.*;
+import utilidades.*;
+
 /**
  * 
  * Clase usuario representa a cualquier usuario del sistema. Es el padre de todas las clases de tipo usuario.
@@ -17,7 +20,7 @@ public abstract class Usuario { //TODO ¿PORQUÉ ABSTRACTA?
 	
 	//CONSTRUCTOR
 	public Usuario(String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) {
-		this.contraseña = contraseña;
+		this.contraseña = Cifrado.cifrar(contraseña);
 		this.correo = correo;
 		this.dni = dni;
 		this.nombreCompleto = nombreCompleto;
@@ -29,7 +32,7 @@ public abstract class Usuario { //TODO ¿PORQUÉ ABSTRACTA?
 		return contraseña;
 	}
 	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+		this.contraseña = Cifrado.cifrar(contraseña);
 	}
 	public String getCorreo() {
 		return correo;

@@ -14,93 +14,102 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <dependencies>
+ 	<dependencies>
 
-	<dependency>
+		<dependency>
 
 		<groupId>junit</groupId>
 
-		<artifactId>junit</artifactId>
+			<artifactId>junit</artifactId>
 
-		<version>4.11</version>
+			<version>4.13.2</version>
 
-		<scope>test</scope>
+			<scope>test</scope>
 
-	</dependency>
+		</dependency>
 
- 	<dependency>
+		<dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter</artifactId>
+          <version>5.9.0</version>
+          <scope>test</scope>
+      	</dependency>
 
-  		<groupId>etsisi.upm.es</groupId>
+		<dependency>
 
-  		<artifactId>ETSISIUPMEmailAPassServer</artifactId>
+  			<groupId>etsisi.upm.es</groupId>
 
-  		<version>1</version>
+  			<artifactId>ETSISIUPMEmailAPassServer</artifactId>
 
-  		<scope>system</scope>
+  			<version>1</version>
 
-		<systemPath>C:\Users\USUARIO\eclipse-workspace\externals-1.0.jar</systemPath>
+  			<scope>system</scope>
 
-  	</dependency>
+			<systemPath>${basedir}/externals-1.0.jar</systemPath>
 
-</dependencies>
+  		</dependency>
 
- <build>
+	</dependencies>
 
-	<plugins>
+	<build>
 
-		<plugin>
+		<plugins>
 
-			<groupId>org.apache.maven.plugins</groupId>
+			<plugin>
 
-			<artifactId>maven-compiler-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
 
-			<version>3.0</version>
+				<artifactId>maven-compiler-plugin</artifactId>
 
-			<configuration>
+				<version>3.0</version>
 
-				<source>1.8</source>
+				<configuration>
 
-				<target>1.8</target>
+					<source>1.8</source>
 
-			</configuration>
+					<target>1.8</target>
 
-		</plugin>
+				</configuration>
 
-		<plugin>
+			</plugin>
 
-			<groupId>org.apache.maven.plugins</groupId>
+			<plugin>
 
-			<artifactId>maven-javadoc-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
 
-			<version>3.0.0-M1</version>
+				<artifactId>maven-javadoc-plugin</artifactId>
 
-			<configuration>
+				<version>3.0.0-M1</version>
 
-				<show>private</show>
+				<configuration>
 
-				<nohelp>true</nohelp>
+					<show>private</show>
 
-			</configuration>
+					<nohelp>true</nohelp>
 
-			<executions>
+				</configuration>
 
-				<execution>
+				<executions>
 
-					<id>attach-javadocs</id>
+					<execution>
 
-					<goals>
+						<id>attach-javadocs</id>
 
-						<goal>jar</goal>
+						<goals>
 
-					</goals>
+							<goal>jar</goal>
 
-				</execution>
+						</goals>
 
-			</executions>
+					</execution>
 
-		</plugin>
+				</executions>
 
-	</plugins>
+			</plugin>
 
- </build>
+		</plugins>
+
+	</build>
+
+
 </project>
