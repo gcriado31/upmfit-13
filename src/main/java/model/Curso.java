@@ -15,6 +15,7 @@ public class Curso implements ICurso{
 	private String nombreCurso;
 	public ArrayList<Sesiones> sesiones;
 	// Estas dos variables de abajo son las que subimos de la clase sesión
+	public ArrayList<Cliente> listaClientes;
 	private int numPersonasMax;
 	private int numPersonasApuntadas; 
 	
@@ -25,6 +26,7 @@ public class Curso implements ICurso{
 		this.nombreCurso=nombreCurso;
 		this.numPersonasMax=numPersonasMax;
 		this.sesiones=new ArrayList<>(numSesiones);
+		this.listaClientes=new ArrayList<>(numPersonasMax);
 		this.numPersonasApuntadas=0;
 	}
 	
@@ -51,8 +53,9 @@ public class Curso implements ICurso{
 	}
 	
 	// METODOS
-	public void apuntarCliente(){
+	public void apuntarCliente(Cliente cliente){
 		this.numPersonasApuntadas++;
+		listaClientes.add(cliente);
 	}
 	
 	
