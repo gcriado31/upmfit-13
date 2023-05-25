@@ -1,8 +1,6 @@
 package model;
 
 import java.util.*;
-import utilidades.*;
-import servidor.*;
 
 /** 
  * Controlador de los Clientes
@@ -52,26 +50,12 @@ public class ControladorCliente {
 		String nombreCompleto=null, nombreUsario=null, contraseña=null, correo=null, dni=null, numeroMatricula=null;
 		Sexo sexo=null; TipoPersonal tipoPersonal=null;
 		// Información basica
-		nombreCompleto=this.m_VistaCliente.askString("Introduzca nombre completo: ");
-		dni=this.m_VistaCliente.askString("Introduzca su DNI: ");
-		nombreUsario=this.m_VistaCliente.askString("Introduzca nombre de usuario: ");
-		correo=this.m_VistaCliente.askString("Introduzca su correo: ");
+		nombreCompleto=this.m_VistaCliente.askString("Introduzca nombre completo:");
+		dni=this.m_VistaCliente.askString("Introduzca su DNI:");
+		nombreUsario=this.m_VistaCliente.askString("Introduzca nombre de usuario:");
+		correo=this.m_VistaCliente.askString("Introduzca su correo:");
 		contraseña=this.m_VistaCliente.askString("Introduzca contraseña: ");
-		//Información basica opcional
-		switch(m_VistaCliente.askOpcion("¿Desea introducir su sexo, edad y peso como información extra?\n\t1. Si.\n\t2. No.")){
-			case 1:
-                String opcionSexo = this.m_VistaCliente.askString("¿Cuál es su sexo? \n\t1. Mujer (introduce M). \n\t2. Hombre (introduce H). \n\t3. Sin identificar (cualquier otra letra o palabra). \n\t-> ");
-				if(opcionSexo.equalsIgnoreCase("M")){
-					sexo = Sexo.MUJER;
-                }else if(opcionSexo.equalsIgnoreCase("H")){
-					sexo = Sexo.HOMBRE;
-				}else{
-                    sexo = Sexo.SIN_DEFINIR;
-                }
-				edad = this.m_VistaCliente.askInt("Introduzca su edad: ");
-				peso = this.m_VistaCliente.askInt("Introduzca su peso: ");
-			break;
-		}
+		
 		// Información específica
 		int tipo=this.m_VistaCliente.askOpcion("¿Cómo se quiere registrar usted?\n\t1. Usuario externo.\n\t2. Personal interno UPM\n\t3. Estudiante");
 		switch (tipo) {
@@ -99,6 +83,24 @@ public class ControladorCliente {
 		return CLIENTE_CREADO_CORRECTAMENTE; 
 	}
 
+	public void insertInfoOpcional(Cliente cliente){
+		//Información basica opcional
+		switch(m_VistaCliente.askOpcion("¿Desea introducir su sexo, edad y peso como información extra?\n\t1. Si.\n\t2. No.")){
+			case 1:
+                String opcionSexo = this.m_VistaCliente.askString("¿Cuál es su sexo? \n\tM. Mujer. \n\tH. Hombre. \n\t3. Sin identificar (cualquier otra letra o palabra). \n\t-> ");
+				if(opcionSexo.equalsIgnoreCase("M")){
+					cliente.setSexo(Sexo.MUJER);
+                }else if(opcionSexo.equalsIgnoreCase("H")){
+					cliente.setSexo(Sexo.HOMBRE);
+				}else{
+                     cliente.setSexo(Sexo.SIN_DEFINIR);
+                }
+				cliente.setEdad(this.m_VistaCliente.askInt("Introduzca su edad: "));
+				cliente.setPeso(this.m_VistaCliente.askInt("Introduzca su peso: "));
+			break;
+		}
+	}
+
 	public void addClient(Cliente cliente){
 		this.m_Cliente.add(cliente);
 	}
@@ -108,7 +110,7 @@ public class ControladorCliente {
 		this.m_Cliente.remove(searched);
 	}
 	
-	public String requestShowSimple(String dni){
+	public String requestShow(String dni){
 		// TODO SABER SI ESTA BIEN HECHO.
 		// TODO EN CLASE VISTACLIENTE MIRAR SI REQUESTED ES NULL
 		Cliente show=this.searchClient(dni);
