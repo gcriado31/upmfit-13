@@ -1,4 +1,7 @@
 package model;
+
+import model.excepciones.*;
+
 /**
  * 
  * Clase de los estudiantes de la UPM. Hereda de la clase Cliente 
@@ -11,9 +14,9 @@ public class Estudiantes extends Cliente {
 	private String numeroMatricula;
 	
 	//CONSTRUCTOR
-	public Estudiantes(int edad, int fechaCaducidad, int peso, Sexo sexo, String contraseña, String correo,
-			String dni, String nombreCompleto, String nombreUsuario, String numeroMatricula) {
-		super(edad, fechaCaducidad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsuario);
+	public Estudiantes(int edad, int peso, Sexo sexo, String contraseña, String correo,
+			String dni, String nombreCompleto, String nombreUsuario, String numeroMatricula) throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException {
+		super(edad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsuario);
 		this.numeroMatricula = numeroMatricula;
 	}
 	

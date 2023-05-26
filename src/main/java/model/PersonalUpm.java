@@ -1,5 +1,9 @@
 package model;
 
+import model.excepciones.IncorrectAgeException;
+import model.excepciones.IncorrectDniFormatException;
+import model.excepciones.IncorrectPasswordFormatException;
+
 /**
  * 
  * Clase del personal interno PAS o PDI. Hereda de Cliente
@@ -14,10 +18,10 @@ public class PersonalUpm extends Cliente{
 	private TipoPersonal tipoPersonal;
 	
 	//CONSTRUCTOR
-	public PersonalUpm(int edad, int fechaCaducidad, int peso, Sexo sexo, String contraseña, String correo,
+	public PersonalUpm(int edad, int peso, Sexo sexo, String contraseña, String correo,
 			String dni, String nombreCompleto, String nombreUsuario, int antiguedad,
-			TipoPersonal tipoPersonal) {
-		super(edad, fechaCaducidad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsuario);
+			TipoPersonal tipoPersonal) throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException {
+		super(edad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsuario);
 		this.antiguedad = antiguedad;
 		calculoDescuento();
 		this.tipoPersonal = tipoPersonal;

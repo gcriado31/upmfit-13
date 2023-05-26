@@ -32,7 +32,7 @@ public class SistemaUPMFIT {
 	}
 
 	//MAIN
-	public void main(){
+	public static void main(String[] args){
 		//Cliente cliente= new Cliente(18, 20/3/2027,100, "M", "AAAA","d","","","");
 
 	}

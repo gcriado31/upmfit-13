@@ -1,5 +1,7 @@
 package model;
 import java.util.*;
+
+import model.excepciones.*;
 import utilidades.*;
 /**
  * 
@@ -10,17 +12,16 @@ public class Cliente extends Usuario implements ICliente{
 	
 	// ATRIBUTOS 
 	protected int edad;
-	protected int fechaCaducidad;
 	protected int peso;
 	protected Sexo sexo;
 	protected LinkedList<Curso> cursos;
 
 	
 	// CONSTRUCTOR
-	public Cliente(int edad, int fechaCaducidad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) {
-		super(Cifrado.cifrar(contraseña),correo,dni,nombreCompleto,nombreUsuario);
-		this.edad = edad;
-		this.fechaCaducidad = fechaCaducidad;
+	public Cliente(int edad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException {
+
+		super(Checker.checkContraseña(contraseña),correo,Checker.checkDNI(dni),nombreCompleto,nombreUsuario);
+		this.edad = Checker.checkEdad(edad);
 		this.peso = peso;
 		this.sexo = sexo;
 		this.cursos=new LinkedList();
@@ -33,14 +34,6 @@ public class Cliente extends Usuario implements ICliente{
 
 	public void setEdad(int edad) {
 		this.edad = edad;
-	}
-
-	public int getFechaCaducidad() {
-		return fechaCaducidad;
-	}
-
-	public void setFechaCaducidad(int fechaCaducidad) {
-		this.fechaCaducidad = fechaCaducidad;
 	}
 
 	public int getPeso() {

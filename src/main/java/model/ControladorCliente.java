@@ -2,6 +2,10 @@ package model;
 
 import java.util.*;
 
+import model.excepciones.IncorrectAgeException;
+import model.excepciones.IncorrectDniFormatException;
+import model.excepciones.IncorrectPasswordFormatException;
+
 /** 
  * Controlador de los Clientes
  * 
@@ -79,7 +83,18 @@ public class ControladorCliente {
 				numeroMatricula=m_VistaCliente.askString("Introduzca el número de matrícula:");
 				break;
 		}
-		this.addClient(creadorClientes.createCliente(edad, 0, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
+		try {
+			this.addClient(creadorClientes.createCliente(edad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
+		} catch (IncorrectPasswordFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IncorrectDniFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IncorrectAgeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return CLIENTE_CREADO_CORRECTAMENTE; 
 	}
 
