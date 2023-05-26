@@ -2,8 +2,10 @@ package model;
 
 import java.util.*;
 
+import model.excepciones.IncorrecWeightException;
 import model.excepciones.IncorrectAgeException;
 import model.excepciones.IncorrectDniFormatException;
+import model.excepciones.IncorrectNameException;
 import model.excepciones.IncorrectPasswordFormatException;
 
 /** 
@@ -92,6 +94,12 @@ public class ControladorCliente {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IncorrectAgeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IncorrecWeightException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IncorrectNameException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

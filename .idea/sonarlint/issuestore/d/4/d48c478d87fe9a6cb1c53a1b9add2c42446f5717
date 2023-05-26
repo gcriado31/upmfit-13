@@ -1,0 +1,15 @@
+
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’Öß•ùÿÿÿÿ8­Ÿ­¾…1
+V
+java:S1118
+":Add a private constructor to hide the implicit public one.(ƒàÕl8Ó ­¾…1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’Öß•ùÿÿÿÿ8Õ ­¾…1
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(’Öß•ùÿÿÿÿ8Õ ­¾…1
+O
+java:S1135"2Complete the task associated to this TODO comment.(Ø„¬û8Ö ­¾…1
+T
+java:S1135D"2Complete the task associated to this TODO comment.(Ø¼€ðùÿÿÿÿ8ß ­¾…1
+D
+java:S1125K"'Remove the unnecessary boolean literal.(¨û•½8à ­¾…1
+]	java:S125i"<This block of commented-out lines of code should be removed.(×öŽÿÿÿÿÿ8ã ­¾…1

@@ -1,8 +1,6 @@
 package model;
 
-import model.excepciones.IncorrectAgeException;
-import model.excepciones.IncorrectDniFormatException;
-import model.excepciones.IncorrectPasswordFormatException;
+import model.excepciones.*;
 
 /**
  * 
@@ -18,9 +16,8 @@ public class PersonalUpm extends Cliente{
 	private TipoPersonal tipoPersonal;
 	
 	//CONSTRUCTOR
-	public PersonalUpm(int edad, int peso, Sexo sexo, String contraseña, String correo,
-			String dni, String nombreCompleto, String nombreUsuario, int antiguedad,
-			TipoPersonal tipoPersonal) throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException {
+	public PersonalUpm(int edad, int peso, Sexo sexo, String contraseña, String correo,String dni, String nombreCompleto, String nombreUsuario, int antiguedad,TipoPersonal tipoPersonal) 
+			throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException, IncorrecWeightException, IncorrectNameException {
 		super(edad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsuario);
 		this.antiguedad = antiguedad;
 		calculoDescuento();

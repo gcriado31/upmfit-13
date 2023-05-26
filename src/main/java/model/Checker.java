@@ -2,8 +2,10 @@ package model;
 
 import java.util.regex.*;
 
+import model.excepciones.IncorrecWeightException;
 import model.excepciones.IncorrectAgeException;
 import model.excepciones.IncorrectDniFormatException;
+import model.excepciones.IncorrectNameException;
 import model.excepciones.IncorrectPasswordFormatException;
 
 public class Checker {
@@ -14,6 +16,10 @@ public class Checker {
     private static final int PART_NUM_DNI= 8;
     private static final int MIN_AGE= 18;
     private static final int MAX_AGE= 90;
+    private static final int MIN_WEIGHT= 50;
+    private static final int MAX_WEIGHT= 180;
+    private static final int MIN_CHAR_NAME= 10;
+    private static final int MAX_CHAR_NAME= 75;
     
     /**
      * Comprueba que la contraseña tiene las carecterísticas específicas.
@@ -88,6 +94,22 @@ public class Checker {
             throw new IncorrectAgeException();
         }else{
             return edad;
+        }
+    }
+
+    public static int checkPeso(int peso) throws IncorrecWeightException{
+        if(peso<MIN_WEIGHT || peso>MAX_WEIGHT){
+            throw new IncorrecWeightException();
+        }else{
+            return peso;
+        }
+    }
+
+    public static String checkName(String name) throws IncorrectNameException{
+        if(name.length()<MIN_CHAR_NAME || name.length()>MAX_CHAR_NAME){
+            throw new IncorrectNameException();
+        }else{
+            return name;
         }
     }
 

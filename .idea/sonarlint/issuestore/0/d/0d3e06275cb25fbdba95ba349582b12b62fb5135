@@ -1,0 +1,25 @@
+
+r
+java:S1104"\Make m_VistaPrincipal a static final constant or non-public and provide accessors if needed.(ğÌÁ«
+s
+java:S1104"^Make m_ControladorCurso a static final constant or non-public and provide accessors if needed.(‡¬è
+v
+java:S1104"`Make m_ControladorCliente a static final constant or non-public and provide accessors if needed.(¬ú»ô
+p	java:S116"[Rename this field "m_VistaPrincipal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÌÁ«
+q	java:S116"]Rename this field "m_ControladorCurso" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡¬è
+t	java:S116"_Rename this field "m_ControladorCliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ú»ô
+M
+java:S1135"2Complete the task associated to this TODO comment.(ì¤›øÿÿÿÿ
+\
+java:S5738"FDon't override this deprecated method, it has been marked for removal.(Èêúÿ
+C
+java:S1113"-Do not override the Object.finalize() method.(Èêúÿ
+<
+java:S1174"&Make this finalize() method protected.(Èêúÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(÷×¥úÿÿÿÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(÷×¥úÿÿÿÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(é–øÿÿÿÿ
+V	java:S125$"<This block of commented-out lines of code should be removed.(Ë™ºøÿÿÿÿ

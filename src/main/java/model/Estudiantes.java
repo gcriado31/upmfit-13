@@ -15,7 +15,8 @@ public class Estudiantes extends Cliente {
 	
 	//CONSTRUCTOR
 	public Estudiantes(int edad, int peso, Sexo sexo, String contraseña, String correo,
-			String dni, String nombreCompleto, String nombreUsuario, String numeroMatricula) throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException {
+			String dni, String nombreCompleto, String nombreUsuario, String numeroMatricula) 
+			throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException, IncorrecWeightException, IncorrectNameException {
 		super(edad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsuario);
 		this.numeroMatricula = numeroMatricula;
 	}

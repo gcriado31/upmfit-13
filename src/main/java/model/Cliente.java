@@ -18,11 +18,12 @@ public class Cliente extends Usuario implements ICliente{
 
 	
 	// CONSTRUCTOR
-	public Cliente(int edad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException {
+	public Cliente(int edad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) 
+	throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException, IncorrecWeightException, IncorrectNameException {
 
-		super(Checker.checkContraseña(contraseña),correo,Checker.checkDNI(dni),nombreCompleto,nombreUsuario);
+		super(Checker.checkContraseña(contraseña),correo,Checker.checkDNI(dni),Checker.checkName(nombreCompleto),nombreUsuario);
 		this.edad = Checker.checkEdad(edad);
-		this.peso = peso;
+		this.peso = Checker.checkPeso(peso)	;
 		this.sexo = sexo;
 		this.cursos=new LinkedList();
 	}
