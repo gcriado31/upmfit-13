@@ -149,7 +149,7 @@ public class ClienteTest {
 
     @Test
     public void casoPrueba18(){
-        assertThrows(IncorrectEmailFormatExcpetion.class, ()-> new Cliente(V1, V2, V5, V9, N14, V8, V6, V7), "CP18 NOT OK");
+        assertThrows(IncorrectEmailFormatExcpetion.class, ()-> new Cliente(V1, V2, V5, V9, N15, V8, V6, V7), "CP18 NOT OK");
     }
 
 }

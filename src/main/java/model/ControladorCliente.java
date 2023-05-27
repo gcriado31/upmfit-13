@@ -2,13 +2,8 @@ package model;
 
 import java.util.*;
 
-import model.excepciones.IncorrecWeightException;
-import model.excepciones.IncorrectAgeException;
-import model.excepciones.IncorrectDniFormatException;
-import model.excepciones.IncorrectEmailFormatExcpetion;
-import model.excepciones.IncorrectNameException;
-import model.excepciones.IncorrectNicknameFormatException;
-import model.excepciones.IncorrectPasswordFormatException;
+import model.excepciones.*;
+import servidor.*;
 
 /** 
  * Controlador de los Clientes
@@ -21,9 +16,10 @@ public class ControladorCliente {
 	private static final String CLIENTE_CREADO_CORRECTAMENTE="Cliente registrado correctamente";
 	private static final String CLIENTE_NOT_FOUND="El cliente buscado no se ha encontrado";
 	// ATRIBUTOS 
-	public VistaCliente m_VistaCliente;
-	public LinkedList<Cliente> m_Cliente;
-	public ClientFactory creadorClientes;
+	private VistaCliente m_VistaCliente;
+	private LinkedList<Cliente> m_Cliente;
+	private ClientFactory creadorClientes;
+	private Autenticacion servidorAutenticacion;
 	// INSTANCIA
 	public static ControladorCliente instance=new ControladorCliente();
 
@@ -33,6 +29,7 @@ public class ControladorCliente {
 		this.m_Cliente=new LinkedList<Cliente>();
 		this.m_VistaCliente=VistaCliente.getInstance();
 		this.creadorClientes =new ClientFactory();
+		this.servidorAutenticacion= new Autenticacion();
 	}
 
 	/**
@@ -57,35 +54,27 @@ public class ControladorCliente {
 		int edad=-1, peso=-1, antiguedad=-1;
 		String nombreCompleto=null, nombreUsario=null, contraseña=null, correo=null, dni=null, numeroMatricula=null;
 		Sexo sexo=null; TipoPersonal tipoPersonal=null;
-		// Información basica
+		// Información basica 9obligatoria
 		nombreCompleto=this.m_VistaCliente.askString("Introduzca nombre completo:");
+		contraseña=this.m_VistaCliente.askString("Introduzca contraseña: ");
 		dni=this.m_VistaCliente.askString("Introduzca su DNI:");
 		nombreUsario=this.m_VistaCliente.askString("Introduzca nombre de usuario:");
 		correo=this.m_VistaCliente.askString("Introduzca su correo:");
-		contraseña=this.m_VistaCliente.askString("Introduzca contraseña: ");
-		
-		// Información específica
-		int tipo=this.m_VistaCliente.askOpcion("¿Cómo se quiere registrar usted?\n\t1. Usuario externo.\n\t2. Personal interno UPM\n\t3. Estudiante");
-		switch (tipo) {
-			case 2:
-				this.m_VistaCliente.show("Personal Interno UPM");
-				antiguedad=m_VistaCliente.askInt("Introduzca su antigüedad:");
-				int eleccion=m_VistaCliente.askOpcion("¿Qué tipo de personal es usted?\n\t1. PAS.\n\t2. PDI");
-				switch (eleccion) {
-					case 1:
-						tipoPersonal=TipoPersonal.PAS;
-						break;
-				
-					case 2:
-						tipoPersonal=TipoPersonal.PDI;
-						break;
-				}
-				break;
-		
-			case 3:
+		// Información si es perteneciente a la UPM
+		if(servidorAutenticacion.existeCuentaUPM(correo)){
+			UPMUsers rol=ObtencionDeRol.get_UPM_AccountRol(correo);
+			if(rol==UPMUsers.ALUMNO){
 				this.m_VistaCliente.show("Estudiante UPM");
 				numeroMatricula=m_VistaCliente.askString("Introduzca el número de matrícula:");
-				break;
+			}else if (rol==UPMUsers.PDI){
+				this.m_VistaCliente.show("Personal Docente e Investigador UPM");
+				antiguedad=m_VistaCliente.askInt("Introduzca su antigüedad:");
+				tipoPersonal=TipoPersonal.PDI;
+			}else{
+				this.m_VistaCliente.show("Personal de Administración y Servicios UPM");
+				antiguedad=m_VistaCliente.askInt("Introduzca su antigüedad:");
+				tipoPersonal=TipoPersonal.PAS;
+			}
 		}
 		try {
 			this.addClient(creadorClientes.createCliente(edad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsario, numeroMatricula, antiguedad, tipoPersonal));
