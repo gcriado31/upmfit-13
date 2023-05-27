@@ -17,7 +17,7 @@ public class PersonalUpm extends Cliente{
 	
 	//CONSTRUCTOR
 	public PersonalUpm(int edad, int peso, Sexo sexo, String contraseña, String correo,String dni, String nombreCompleto, String nombreUsuario, int antiguedad,TipoPersonal tipoPersonal) 
-			throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException, IncorrecWeightException, IncorrectNameException {
+			throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException, IncorrecWeightException, IncorrectNameException, IncorrectNicknameFormatException, IncorrectEmailFormatExcpetion {
 		super(edad, peso, sexo, contraseña, correo, dni, nombreCompleto, nombreUsuario);
 		this.antiguedad = antiguedad;
 		calculoDescuento();

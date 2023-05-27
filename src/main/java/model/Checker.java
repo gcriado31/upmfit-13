@@ -5,7 +5,9 @@ import java.util.regex.*;
 import model.excepciones.IncorrecWeightException;
 import model.excepciones.IncorrectAgeException;
 import model.excepciones.IncorrectDniFormatException;
+import model.excepciones.IncorrectEmailFormatExcpetion;
 import model.excepciones.IncorrectNameException;
+import model.excepciones.IncorrectNicknameFormatException;
 import model.excepciones.IncorrectPasswordFormatException;
 
 public class Checker {
@@ -20,6 +22,10 @@ public class Checker {
     private static final int MAX_WEIGHT= 180;
     private static final int MIN_CHAR_NAME= 10;
     private static final int MAX_CHAR_NAME= 75;
+    private static final int MIN_CHAR_NICKNAME = 3;
+    private static final int MAX_CHAR_NICKAME = 10;
+    private static final int MIN_CHAR_EMAIL = 11;
+    private static final int MAX_CHAR_EMAIL = 25;
     
     /**
      * Comprueba que la contraseña tiene las carecterísticas específicas.
@@ -110,6 +116,26 @@ public class Checker {
             throw new IncorrectNameException();
         }else{
             return name;
+        }
+    }
+
+    public static String checkNickname(String nickname) throws IncorrectNicknameFormatException{
+        if(nickname.length()<MIN_CHAR_NICKNAME || nickname.length()>MAX_CHAR_NICKAME){
+            throw new IncorrectNicknameFormatException();
+        }else{
+            return nickname;
+        }
+    }
+
+    public static String checkEmail(String email) throws IncorrectEmailFormatExcpetion {
+        if(email.length()<MIN_CHAR_EMAIL || email.length()>MAX_CHAR_EMAIL){
+            throw new IncorrectEmailFormatExcpetion();
+        }else{
+            if(email.contains("@") && (email.endsWith(".es") || email.endsWith(".com"))){
+                return email;
+            }else{
+                throw new IncorrectEmailFormatExcpetion();
+            }
         }
     }
 

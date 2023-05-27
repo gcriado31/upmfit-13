@@ -43,55 +43,113 @@ public class ClienteTest {
 
     }
 
+    // TEST DONDE TODOS SON VÁLIDOS
    
     @Test
     public void casoPrueba1(){
-        assertDoesNotThrow(() ->new Cliente(V1, V2, V3, V9, V10, V8, V6, V7));
+        assertDoesNotThrow(() ->new Cliente(V1, V2, V3, V9, V10, V8, V6, V7),"CP1 NOT OK");
     }
 
     @Test
     public void casoPrueba2(){
-        assertDoesNotThrow(() ->new Cliente(V1, V2, V4, V9, V10, V8, V6, V7));
+        assertDoesNotThrow(() ->new Cliente(V1, V2, V4, V9, V10, V8, V6, V7),"CP2 NOT OK");
     }
 
     @Test
     public void casoPrueba3(){
-        assertDoesNotThrow(() ->new Cliente(V1, V2, V5, V9, V10, V8, V6, V7));
+        assertDoesNotThrow(() ->new Cliente(V1, V2, V5, V9, V10, V8, V6, V7),"CP3 NOT OK");
     }
+
+    // TEST DEL CONTROL DE LA EDAD
 
     @Test
     public void casoPrueba4(){
-        assertThrows(IncorrectAgeException.class, () ->new Cliente(N1, V2, V5, V9, V10, V8, V6, V7));
+        assertThrows(IncorrectAgeException.class, () ->new Cliente(N1, V2, V5, V9, V10, V8, V6, V7),"CP4 NOT OK");
     }
 
     @Test
     public void casoPrueba5(){
-        assertThrows(IncorrectAgeException.class, () ->new Cliente(N2, V2, V5, V9, V10, V8, V6, V7));
+        assertThrows(IncorrectAgeException.class, () ->new Cliente(N2, V2, V5, V9, V10, V8, V6, V7),"CP5 NOT OK");
     }
+
+     // TEST DEL CONTROL DEL PESO
 
     @Test
     public void casoPrueba6(){
-        assertThrows(IncorrecWeightException.class, () ->new Cliente(V1, N3, V5, V9, V10, V8, V6, V7));
+        assertThrows(IncorrecWeightException.class, () ->new Cliente(V1, N3, V5, V9, V10, V8, V6, V7),"CP6 NOT OK");
     }
 
     @Test
     public void casoPrueba7(){
-        assertThrows(IncorrecWeightException.class, () ->new Cliente(V1, N4, V5, V9, V10, V8, V6, V7));
+        assertThrows(IncorrecWeightException.class, () ->new Cliente(V1, N4, V5, V9, V10, V8, V6, V7),"CP7 NOT OK");
     }
+
+     // TEST DEL CONTROL DEL SEXO
 
     @Test
     public void casoPrueba8(){
         //TODO test sexo
     }
 
+     // TEST DEL CONTROL DEL NOMBRE
+
     @Test
     public void casoPrueba9(){
-        assertThrows(IncorrectNameException.class, () -> new Cliente(V1, V2, V5, V9, V10, V8, N6, V7));
+        assertThrows(IncorrectNameException.class, () -> new Cliente(V1, V2, V5, V9, V10, V8, N6, V7),"CP9 NOT OK");
     }
 
     @Test
-    public void casoPrueb10(){
-        assertThrows(IncorrectNameException.class, () -> new Cliente(V1, V2, V5, V9, V10, V8, N7, V7));
+    public void casoPrueba10(){
+        assertThrows(IncorrectNameException.class, () -> new Cliente(V1, V2, V5, V9, V10, V8, N7, V7),"CP10 NOT OK");
+    }
+
+    // TEST DEL CONTROL DEL NOMBRE DE USUARIO
+
+    @Test
+    public void casoPrueba11(){
+        assertThrows(IncorrectNicknameFormatException.class, () -> new Cliente(V1, V2, V5, V9, V10, V8, V6, N8),"CP11 NOT OK");
+    }
+
+    @Test
+    public void casoPrueba12(){
+        assertThrows(IncorrectNicknameFormatException.class, () -> new Cliente(V1, V2, V5, V9, V10, V8, V6, N9),"CP12 NOT OK");
+    }
+    
+    // TEST DEL CONTROL DEL DNI
+
+    @Test
+    public void casoPrueba13(){
+        assertThrows(IncorrectDniFormatException.class, () -> new Cliente(V1, V2, V5, V9, V10, N10, V6, V7),"CP13 NOT OK");
+    }
+    
+    @Test
+    public void casoPrueba14(){
+        assertThrows(IncorrectDniFormatException.class, () -> new Cliente(V1, V2, V5, V9, V10, N11, V6, V7),"CP14 NOT OK");
+    }
+
+    
+    // TEST DEL CONTROL DE LA CONSTRASEÑA 
+
+    @Test
+    public void casoPrueba15(){
+        assertThrows(IncorrectPasswordFormatException.class, ()-> new Cliente(V1, V2, V5, N12, V10, V8, V6, V7), "CP15 NOT OK");
+    }
+
+    @Test
+    public void casoPrueba16(){
+        assertThrows(IncorrectPasswordFormatException.class, ()-> new Cliente(V1, V2, V5, N13, V10, V8, V6, V7), "CP16 NOT OK");
+    }
+
+    
+    // TEST DEL CONTROL DEL EMAIL
+    @Test
+    public void casoPrueba17(){
+        assertThrows(IncorrectEmailFormatExcpetion.class, ()-> new Cliente(V1, V2, V5, V9, N14, V8, V6, V7), "CP17 NOT OK");
+    }
+
+    @Test
+    public void casoPrueba18(){
+        assertThrows(IncorrectEmailFormatExcpetion.class, ()-> new Cliente(V1, V2, V5, V9, N14, V8, V6, V7), "CP18 NOT OK");
     }
 
 }

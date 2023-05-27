@@ -19,9 +19,9 @@ public class Cliente extends Usuario implements ICliente{
 	
 	// CONSTRUCTOR
 	public Cliente(int edad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) 
-	throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException, IncorrecWeightException, IncorrectNameException {
+	throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException, IncorrecWeightException, IncorrectNameException, IncorrectNicknameFormatException, IncorrectEmailFormatExcpetion {
 
-		super(Checker.checkContraseña(contraseña),correo,Checker.checkDNI(dni),Checker.checkName(nombreCompleto),nombreUsuario);
+		super(Checker.checkContraseña(contraseña),Checker.checkEmail(correo),Checker.checkDNI(dni),Checker.checkName(nombreCompleto),Checker.checkNickname(nombreUsuario));
 		this.edad = Checker.checkEdad(edad);
 		this.peso = Checker.checkPeso(peso)	;
 		this.sexo = sexo;
