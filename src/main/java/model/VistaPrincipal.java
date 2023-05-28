@@ -40,8 +40,7 @@ public class VistaPrincipal { //TODO NO SE PA QUE SIRVE ESTO
 	}
 		
 	public int askOpcion() {
-		int opcion=input.scanInt();
-		return opcion;
+		return input.scanInt();
 	}
 
 	public void show(String msg){
@@ -50,7 +49,7 @@ public class VistaPrincipal { //TODO NO SE PA QUE SIRVE ESTO
 
 	public String askString(String msg) {
 		this.show(msg);
-		String devuelto=input.scanString();
-        return devuelto;
+		return input.scanString();
+
     }
 }

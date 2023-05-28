@@ -71,7 +71,7 @@ public class ControladorCurso {
 			Random idGenator=new Random();
 			idNumber=idGenator.nextInt(100); //TODO PENSAR NÚMERO PARA PONER
 			id=Integer.toString(idNumber);
-			if (searchCurse(id)==null){
+			if (this.searchCurse(id)==null){
 				repetir=false;
 			}
 		}while(repetir);
@@ -153,14 +153,16 @@ public class ControladorCurso {
 		boolean stop=false;
 		Curso found=null;
 		int iterator=0;
-		while (!stop){
-			if(m_Curso.isEmpty() || m_Curso.size()<iterator){
-				stop=true;
-			}else if (m_Curso.get(iterator).getIdCurso().equals(id)){
-				found=m_Curso.get(iterator);
-				stop=true;
-			}else{
-				iterator++;
+		if(!m_Curso.isEmpty()){
+			while (!stop){
+				if(m_Curso.isEmpty() || m_Curso.size()<=iterator){
+					stop=true;
+				}else if (m_Curso.get(iterator).getIdCurso().equals(id)){
+					found=m_Curso.get(iterator);
+					stop=true;
+				}else{
+					iterator++;
+				}
 			}
 		}
 		return found;

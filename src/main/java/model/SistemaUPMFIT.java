@@ -64,8 +64,7 @@ public class SistemaUPMFIT {
 				m_ControladorCurso.create(monitorDumie);
 				break;
 			case 3:
-				String dniCliente=m_VistaPrincipal.askString("Introduzca el dni del cliente:");
-				Cliente cliente=m_ControladorCliente.searchClient(dniCliente);
+				Cliente cliente=this.searchCliente();
 				if(cliente!=null){
 					m_ControladorCurso.requestShowAll();
 					String nombreCurso=m_VistaPrincipal.askString("Introduzca el nombre del curso al que se quiere apuntar:");
@@ -82,6 +81,11 @@ public class SistemaUPMFIT {
 				break;
 		}
 		return exit;
+	}
+
+	private Cliente searchCliente(){
+		String dniCliente=m_VistaPrincipal.askString("Introduzca el dni del cliente:");
+		return m_ControladorCliente.searchClient(dniCliente);
 	}
 
 	//MAIN

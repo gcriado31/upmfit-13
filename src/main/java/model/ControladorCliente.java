@@ -163,7 +163,7 @@ public class ControladorCliente {
 		Cliente found=null;
 		int iterator=0;
 		while (!stop){
-			if(m_Cliente.isEmpty() || m_Cliente.size()<iterator){
+			if(m_Cliente.isEmpty() || m_Cliente.size()<=iterator){
 				stop=true;
 			}else if (m_Cliente.get(iterator).getDni().equals(dni)){
 				found=m_Cliente.get(iterator);
