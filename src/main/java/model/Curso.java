@@ -58,6 +58,13 @@ public class Curso implements ICurso{
 		return monitor;
 	}
 	
+	public void setSesiones(ArrayList<Sesiones> sesiones){
+		this.sesiones=sesiones;
+	}
+
+	public int getNumPersonasApuntadas() {
+		return numPersonasApuntadas;
+	}
 	// METODOS
 	public void apuntarCliente(Cliente cliente){
 		this.numPersonasApuntadas++;

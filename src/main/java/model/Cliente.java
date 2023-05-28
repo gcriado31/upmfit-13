@@ -1,5 +1,7 @@
 package model;
 import java.util.*;
+
+import model.excepciones.*;
 import utilidades.*;
 /**
  * 
@@ -10,18 +12,18 @@ public class Cliente extends Usuario implements ICliente{
 	
 	// ATRIBUTOS 
 	protected int edad;
-	protected int fechaCaducidad;
 	protected int peso;
 	protected Sexo sexo;
 	protected LinkedList<Curso> cursos;
 
 	
 	// CONSTRUCTOR
-	public Cliente(int edad, int fechaCaducidad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) {
-		super(Cifrado.cifrar(contraseña),correo,dni,nombreCompleto,nombreUsuario);
-		this.edad = edad;
-		this.fechaCaducidad = fechaCaducidad;
-		this.peso = peso;
+	public Cliente(int edad, int peso, Sexo sexo, String contraseña, String correo, String dni, String nombreCompleto, String nombreUsuario) 
+	throws IncorrectPasswordFormatException, IncorrectDniFormatException, IncorrectAgeException, IncorrecWeightException, IncorrectNameException, IncorrectNicknameFormatException, IncorrectEmailFormatExcpetion {
+
+		super(Checker.checkContraseña(contraseña),Checker.checkEmail(correo),Checker.checkDNI(dni),Checker.checkName(nombreCompleto),Checker.checkNickname(nombreUsuario));
+		this.edad = Checker.checkEdad(edad);
+		this.peso = Checker.checkPeso(peso)	;
 		this.sexo = sexo;
 		this.cursos=new LinkedList();
 	}
@@ -31,24 +33,16 @@ public class Cliente extends Usuario implements ICliente{
 		return edad;
 	}
 
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-
-	public int getFechaCaducidad() {
-		return fechaCaducidad;
-	}
-
-	public void setFechaCaducidad(int fechaCaducidad) {
-		this.fechaCaducidad = fechaCaducidad;
+	public void setEdad(int edad) throws IncorrectAgeException {
+		this.edad = Checker.checkEdad(edad);
 	}
 
 	public int getPeso() {
 		return peso;
 	}
 
-	public void setPeso(int peso) {
-		this.peso = peso;
+	public void setPeso(int peso) throws IncorrecWeightException {
+		this.peso =Checker.checkPeso(peso);
 	}
 
 	public Sexo getSexo() {
