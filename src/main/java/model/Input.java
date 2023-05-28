@@ -32,8 +32,4 @@ public class Input {
     public int scanInt() throws InputMismatchException {
         return this.scanner.nextInt();
     }
-
-    public void reset() {
-        scanner.reset();
-    }
 }

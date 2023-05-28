@@ -41,7 +41,6 @@ public class VistaPrincipal { //TODO NO SE PA QUE SIRVE ESTO
 		
 	public int askOpcion() {
 		int opcion=input.scanInt();
-		input.reset();
 		return opcion;
 	}
 
@@ -52,7 +51,6 @@ public class VistaPrincipal { //TODO NO SE PA QUE SIRVE ESTO
 	public String askString(String msg) {
 		this.show(msg);
 		String devuelto=input.scanString();
-		input.reset();
         return devuelto;
     }
 }

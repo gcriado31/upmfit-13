@@ -12,17 +12,8 @@ public class Sesiones {
 
 	//CONSTRUCTOR
 	public Sesiones(Actividad actividades){
-		//TODO COMPLETAR CONSTRUCTOR
 		this.actividades=actividades;
 	}
-
-	// TODO ¿SETTERS Y GETTERS?
 	
-	//MÉTODOS
-	public void finalize() throws Throwable {
-		//TODO COMPLETAR METODO
-	}
-	
-	//TODO ¿MÉTODO INCREMENTAR NUMERO PERSONAS?
 
 }

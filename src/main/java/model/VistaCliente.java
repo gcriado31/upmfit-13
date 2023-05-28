@@ -37,23 +37,19 @@ public class VistaCliente {
 
     public String askString(String msg) {
 		this.show(msg);
-		input.reset();
 		String devuelto=input.scanString();
-		input.reset();
         return devuelto;
     }
 
 	public int askOpcion(String msg) {
 		this.show(msg);
 		int opcion=input.scanInt();
-		input.reset();
 		return opcion; 
 	}
 
 	public int askInt(String msg) {
 		this.show(msg);
 		int integer=input.scanInt();
-		input.reset();
 		return integer;
 	}
 

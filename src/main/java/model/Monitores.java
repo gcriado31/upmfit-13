@@ -28,6 +28,5 @@ public class Monitores extends Usuario {
 		this.m_Curso = m_Curso;
 	}
 
-	//TODO METODOS AÑADIR CURSO Y MÁS 
 
 }

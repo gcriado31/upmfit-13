@@ -14,7 +14,7 @@ public class ControladorCliente {
 	
 	// VARIABLES GLOBALES
 	private static final String CLIENTE_CREADO_CORRECTAMENTE="Cliente registrado correctamente";
-	private static final String CLIENTE_NOT_FOUND="El cliente buscado no se ha encontrado";
+	private static final String CLIENTE_NOT_FOUND="El cliente buscado no se ha encontrado\n";
 	// ATRIBUTOS 
 	private VistaCliente m_VistaCliente;
 	private LinkedList<Cliente> m_Cliente;
