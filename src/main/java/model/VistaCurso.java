@@ -14,7 +14,6 @@ public class VistaCurso {
 	private Input input;
 	/**Constructor privado para el patron Singleton.*/
 	private VistaCurso(){
-		//TODO COMPLETAR METODO
 		this.input=Input.getInstance();
 	}
 
@@ -27,9 +26,8 @@ public class VistaCurso {
 	}
 
 	//METODOS 
-	public String renderShow(ICurso curso){// TODO ¿PORQUÉ ICURSO?
-		//TODO COMPLETAR METODO
-		return "";
+	public String renderShow(ICurso curso){
+		return curso.toString();
 	}
 
 	public void show(String msg){
@@ -38,17 +36,23 @@ public class VistaCurso {
 
     public String askString(String msg) {
 		this.show(msg);
-        return input.scanString();
+		String devuelto=input.scanString();
+		input.reset();
+        return devuelto;
     }
 
 	public int askOpcion(String msg) {
 		this.show(msg);
-		return input.scanInt(); //TODO scanOption
+		int opcion=input.scanInt();
+		input.reset();
+		return opcion;
 	}
 
 	public int askInt(String msg) {
 		this.show(msg);
-		return input.scanInt();
+		int integer=input.scanInt();
+		input.reset();
+		return integer;
 	}
 
 	/**
@@ -57,7 +61,7 @@ public class VistaCurso {
 	 * @param curso Curso que se desa saber la información
 	 */
 	public void visualizacionCursos(Curso curso) {
-		this.show("Curso: " + curso.getNombreCurso() +"\nMonitor a cargo: "+curso.getMonitor().getNombreCompleto()+ "\nClientes que se encuentran inscritos: ");
+		this.show("Curso: " + curso.getNombreCurso() +"\nMonitor a cargo: "+curso.getMonitor().getNombreCompleto()+ "\nClientes que se encuentran inscritos("+curso.getNumPersonasApuntadas()+"/"+curso.getNumPersonasMax()+"):\n ");
 		for (Cliente cliente : curso.listaClientes) {
 			this.show("\t"+cliente.toStringSimple());
 		}

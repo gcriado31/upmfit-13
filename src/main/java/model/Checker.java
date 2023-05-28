@@ -26,6 +26,7 @@ public class Checker {
     private static final int MAX_CHAR_NICKAME = 10;
     private static final int MIN_CHAR_EMAIL = 11;
     private static final int MAX_CHAR_EMAIL = 25;
+    private static final int DEFAULT = -1;
     
     /**
      * Comprueba que la contraseña tiene las carecterísticas específicas.
@@ -96,7 +97,7 @@ public class Checker {
     }
 
     public static int checkEdad(int edad) throws IncorrectAgeException{
-        if(edad<MIN_AGE || edad>MAX_AGE){
+        if((edad<MIN_AGE || edad>MAX_AGE) && edad!=DEFAULT){
             throw new IncorrectAgeException();
         }else{
             return edad;
@@ -104,7 +105,7 @@ public class Checker {
     }
 
     public static int checkPeso(int peso) throws IncorrecWeightException{
-        if(peso<MIN_WEIGHT || peso>MAX_WEIGHT){
+        if((peso<MIN_WEIGHT || peso>MAX_WEIGHT) && peso!=DEFAULT){
             throw new IncorrecWeightException();
         }else{
             return peso;

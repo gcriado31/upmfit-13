@@ -33,16 +33,16 @@ public class Cliente extends Usuario implements ICliente{
 		return edad;
 	}
 
-	public void setEdad(int edad) {
-		this.edad = edad;
+	public void setEdad(int edad) throws IncorrectAgeException {
+		this.edad = Checker.checkEdad(edad);
 	}
 
 	public int getPeso() {
 		return peso;
 	}
 
-	public void setPeso(int peso) {
-		this.peso = peso;
+	public void setPeso(int peso) throws IncorrecWeightException {
+		this.peso =Checker.checkPeso(peso);
 	}
 
 	public Sexo getSexo() {

@@ -26,9 +26,8 @@ public class VistaCliente {
 	}
 
 	//METODOS 
-	public String renderShowSimple(ICliente cliente){ // TODO ¿PORQUÉ ICLIENTE?
-		//TODO COMPLETAR METODO
-		return "";
+	public String renderShowSimple(ICliente cliente){ 
+		return cliente.toStringSimple();
 	}
 
 
@@ -38,17 +37,24 @@ public class VistaCliente {
 
     public String askString(String msg) {
 		this.show(msg);
-        return input.scanString();
+		input.reset();
+		String devuelto=input.scanString();
+		input.reset();
+        return devuelto;
     }
 
 	public int askOpcion(String msg) {
 		this.show(msg);
-		return input.scanInt(); //TODO scanOption
+		int opcion=input.scanInt();
+		input.reset();
+		return opcion; 
 	}
 
 	public int askInt(String msg) {
 		this.show(msg);
-		return input.scanInt();
+		int integer=input.scanInt();
+		input.reset();
+		return integer;
 	}
 
 }

@@ -41,13 +41,25 @@ public class ControladorCurso {
 		this.m_VistaCurso=null;
 	}
 
+	public void apuntarCliente(String nombreCurso, Cliente cliente){
+		Curso curso=this.searchCurseByName(nombreCurso);
+		if(curso!=null){
+			curso.apuntarCliente(cliente);
+		}else{
+			m_VistaCurso.show(CURSO_NOT_FOUND);
+		}
+	}
+
 	public String create(Monitores monitor){
 		//TODO COMPLETAR METODO
 		String nombreCurso=m_VistaCurso.askString("Introduzca el nombre del curso:");
 		int numPersonasMax=m_VistaCurso.askInt("Introduzca el número máximo de personas: ");
 		int numSesiones=m_VistaCurso.askInt("Introduzca el numero se sesiones que tendrá el curso: ");
+		Actividad actividad=this.askActividad();
 		String id=this.generateID();
-		m_Curso.add(new Curso(id,nombreCurso,numPersonasMax, numSesiones,monitor));	
+		Curso nuevoCurso=new Curso(id,nombreCurso,numPersonasMax, numSesiones,monitor);
+		nuevoCurso.setSesiones(this.generateSesiones(numSesiones, actividad));
+		m_Curso.add(nuevoCurso);	
 		return CURSO_CREADO_CORRECTAMENTE;
 	}
 
@@ -66,6 +78,36 @@ public class ControladorCurso {
 		return id;
 	}
 	
+	private ArrayList<Sesiones> generateSesiones(int numSesiones, Actividad actividad){
+		ArrayList<Sesiones> devuelto=new ArrayList<>(numSesiones);
+		for (int i = 0; i < numSesiones; i++) {
+			devuelto.add(new Sesiones(actividad));
+		}
+		return devuelto;
+	}
+
+	private Actividad askActividad(){
+		try{
+			int eleccion=m_VistaCurso.askOpcion("Seleccione la actividad que se va realizar en el curso\n\t1.Gimnasia.\n\t2.Bicicleta\n\t3.Natacion\n\t4.Baile\n\t5.Relax\nPulse cualquier otra tecla para General");
+			switch (eleccion) {
+				case 1:
+					return Actividad.Gimnasia;
+				case 2:
+					return Actividad.Bicicleta;
+				case 3:
+					return Actividad.Natacion;
+				case 4:
+					return Actividad.Baile;
+				case 5:
+					return Actividad.Relax;
+				default:
+					return Actividad.General;
+			}
+		} catch(InputMismatchException e){
+			return Actividad.General;
+		}
+	}
+
 	public void addCurso(Curso curso) {
 		this.m_Curso.add(curso);
 		
@@ -115,6 +157,28 @@ public class ControladorCurso {
 			if(m_Curso.isEmpty() || m_Curso.size()<iterator){
 				stop=true;
 			}else if (m_Curso.get(iterator).getIdCurso().equals(id)){
+				found=m_Curso.get(iterator);
+				stop=true;
+			}else{
+				iterator++;
+			}
+		}
+		return found;
+	}
+
+	/**
+	 * Método que busca el curso con el id pasado.
+	 * @param nombre Nombre del curso que estamos buscando.
+	 * @return Devolverá el curso con id igual al pasado. En caso de no encontrarlo devolverá null
+	 */
+	private Curso searchCurseByName(String nombre){ 
+		boolean stop=false;
+		Curso found=null;
+		int iterator=0;
+		while (!stop){
+			if(m_Curso.isEmpty() || m_Curso.size()<iterator){
+				stop=true;
+			}else if (m_Curso.get(iterator).getNombreCurso().equals(nombre)){
 				found=m_Curso.get(iterator);
 				stop=true;
 			}else{

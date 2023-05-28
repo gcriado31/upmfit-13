@@ -88,7 +88,9 @@ public class ClienteTest {
 
     @Test
     public void casoPrueba8(){
-        //TODO test sexo
+        /*
+         * Al ser un tipo enum el atributo sexo nos da error de compliacion si ponemos Sexo.AA ya que en el enum no existe esa posibilidad
+         */
     }
 
      // TEST DEL CONTROL DEL NOMBRE
