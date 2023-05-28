@@ -71,7 +71,7 @@ public class SistemaUPMFIT {
 					String nombreCurso=m_VistaPrincipal.askString("Introduzca el nombre del curso al que se quiere apuntar:");
 					m_ControladorCurso.apuntarCliente(nombreCurso, cliente);
 				}else{
-					m_VistaPrincipal.show("El cliente buscado no se ha encontrado");
+					m_VistaPrincipal.show("El cliente buscado no se ha encontrado\n");
 				}
 				break;
 			case 4:
