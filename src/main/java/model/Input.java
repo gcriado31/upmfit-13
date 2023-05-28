@@ -3,17 +3,22 @@ package model;
 import java.util.*;
 
 /**
- * Esta calse nos servirá para escanear lo que le usuario meta por pantalla.
+ * Esta clase nos servirá para escanear lo que le usuario meta por pantalla.
  */
 public class Input {
     
     //ATRIBUTOS
     private Scanner scanner;
+    // INSTANCIA
+    private static Input instance=new Input();
 
-    public Input(){
+    private Input(){
         this.scanner=new Scanner(System.in);
     }
 
+    public static Input getInstance() {
+        return instance;
+    }
 
     // METODOS
     /**
@@ -31,5 +36,9 @@ public class Input {
     */
     public int scanInt() throws InputMismatchException {
         return this.scanner.nextInt();
+    }
+
+    public void clean(){
+        scanner.nextLine();
     }
 }

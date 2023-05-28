@@ -120,6 +120,7 @@ public class ControladorCliente {
 
 	public void insertInfoOpcional(Cliente cliente) throws IncorrectAgeException, IncorrecWeightException{
 		//Información basica opcional
+		m_VistaCliente.cleanInput();
         String opcionSexo = this.m_VistaCliente.askString("¿Cuál es su sexo? \n\tM. Mujer. \n\tH. Hombre. \n\t3. Sin identificar (cualquier otra letra o palabra). \n\t-> ");
 		if(opcionSexo.equalsIgnoreCase("M")){
 			cliente.setSexo(Sexo.MUJER);
@@ -143,8 +144,6 @@ public class ControladorCliente {
 	}
 	
 	public String requestShow(String dni){
-		// TODO SABER SI ESTA BIEN HECHO.
-		// TODO EN CLASE VISTACLIENTE MIRAR SI REQUESTED ES NULL
 		Cliente show=this.searchClient(dni);
 		if(show!=null){
 			return m_VistaCliente.renderShowSimple(show);

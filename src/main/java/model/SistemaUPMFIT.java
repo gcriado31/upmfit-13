@@ -46,6 +46,7 @@ public class SistemaUPMFIT {
 			m_VistaPrincipal.renderMenu();
 			try{
 				int elección=m_VistaPrincipal.askOpcion();
+				m_VistaPrincipal.cleanInput();
 				exit=this.switchMenu(elección);
 			} catch (InputMismatchException e){
 				exit=false;

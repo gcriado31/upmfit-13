@@ -18,7 +18,7 @@ public class VistaPrincipal { //TODO NO SE PA QUE SIRVE ESTO
 
 	/**Constructor privado para el patron Singleton.*/
 	private VistaPrincipal(){
-		this.input=new Input();
+		this.input=Input.getInstance();
 	}
 
 
@@ -50,6 +50,8 @@ public class VistaPrincipal { //TODO NO SE PA QUE SIRVE ESTO
 	public String askString(String msg) {
 		this.show(msg);
 		return input.scanString();
-
     }
+	public void cleanInput(){
+		input.clean();
+	}
 }

@@ -178,7 +178,7 @@ public class ControladorCurso {
 		Curso found=null;
 		int iterator=0;
 		while (!stop){
-			if(m_Curso.isEmpty() || m_Curso.size()<iterator){
+			if(m_Curso.isEmpty() || m_Curso.size()<=iterator){
 				stop=true;
 			}else if (m_Curso.get(iterator).getNombreCurso().equals(nombre)){
 				found=m_Curso.get(iterator);
