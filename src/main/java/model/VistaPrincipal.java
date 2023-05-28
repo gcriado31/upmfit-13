@@ -18,7 +18,7 @@ public class VistaPrincipal { //TODO NO SE PA QUE SIRVE ESTO
 
 	/**Constructor privado para el patron Singleton.*/
 	private VistaPrincipal(){
-		this.input=Input.getInstance();
+		this.input=new Input();
 	}
 
 

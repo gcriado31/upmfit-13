@@ -14,7 +14,7 @@ public class VistaCurso {
 	private Input input;
 	/**Constructor privado para el patron Singleton.*/
 	private VistaCurso(){
-		this.input=Input.getInstance();
+		this.input=new Input();
 	}
 
 	/**
