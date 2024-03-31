@@ -1,11 +1,11 @@
 # upmfit-13
 <div>
     <img src="https://img.shields.io/badge/testing-passed-green?logo=junit5" alt="testing" style="display: inline-block; margin-right: 10px;">
-    <img src="https://img.shields.io/badge/project-finished-green?logo=apachemaven" alt="project" style="display: inline-block; margin-right: 10px;"> 
-  <img src="https://img.shields.io/badge/code-not_completed-yellow?logo=sonarlint" alt="code" style="display: inline-block;">
+    <img src="https://img.shields.io/badge/project-finished-green?logo=apachemaven" alt="project" style="display: inline-block; margin-right: 10px;">
+  <img src="https://img.shields.io/badge/code-not_completed-yellow?logo=sonarlint" alt="Código" style="display: inline-block;">
 </div>
 
-## Aunthors
+## Authors
 * David Barbero
 * Guillermo Criado
 ## Objectives
